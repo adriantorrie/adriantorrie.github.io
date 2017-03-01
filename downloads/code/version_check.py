@@ -28,3 +28,6 @@ print('sklearn:\t{}'.format(sklearn.__version__))
 import scipy
 print('scipy:\t\t{}'.format(scipy.__version__))
 
+# statsmodels
+import statsmodels
+print('statsmodels:\t{}'.format(statsmodels.__version__))

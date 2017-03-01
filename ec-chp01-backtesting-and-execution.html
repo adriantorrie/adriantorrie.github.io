@@ -65,7 +65,7 @@ by <a class="url fn" href="./author/adrian-torrie.html">Adrian Torrie</a>
 
         </div>
 
-            <p>This post is part 1 of the "Python code for Algorithmic Trading" series:</p>
+            <p>This post is part 1 of the "Python code for the book Algorithmic Trading by Ernie Chan" series:</p>
             <ol class="parts">
                     <li class="active">
                         <a href='./ec-chp01-backtesting-and-execution.html'>Python code for Algorithmic Trading: Chapter One</a>
@@ -230,6 +230,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -250,11 +251,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -992,8 +988,10 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -1004,9 +1002,11 @@ h6:hover .anchor-link {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
 <style type="text/css">
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
@@ -1075,7 +1075,8 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Python: 3.5.2 |Continuum Analytics, Inc.| (default, Jul  2 2016, 17:53:06) 
 [GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
@@ -1249,7 +1250,8 @@ n & = \text{the number of data points, also known as the }\textbf{number of samp
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>count    2769.000000
 mean      324.799144
@@ -1278,7 +1280,8 @@ Name: Adj Close, dtype: float64</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>297.34735499999999</pre>
 </div>
@@ -1312,7 +1315,8 @@ Name: Adj Close, dtype: float64</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>Date
 2005-01-04   -0.040501
@@ -1387,7 +1391,8 @@ Name: Adj Close, dtype: float64</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>srt-stat	2.4804
 crit		2.326
@@ -1432,14 +1437,16 @@ Outcome:	Reject the Null Hypothesis
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>start_value:	10000
 end_value:	35682.23146558856
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAl8AAAEKCAYAAAAsFDDEAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xd4VFX6wPHvTPokmfSEhBIgtFASegktAZGAriJFyqo/
@@ -1934,7 +1941,8 @@ $$\text{n years} = \frac{\text{Total number of days}}{\text{Average trading days
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[8]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>Date
 2005-01-01    252
@@ -1985,7 +1993,8 @@ Freq: AS-JAN, Name: Adj Close, dtype: int64</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>252.0</pre>
 </div>
@@ -2032,7 +2041,8 @@ Freq: AS-JAN, Name: Adj Close, dtype: int64</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Compound annual growth rate (CAGR) = 12.28%
 </pre>
@@ -2067,7 +2077,8 @@ Freq: AS-JAN, Name: Adj Close, dtype: int64</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Compound annual growth rate (CAGR) = 18.26%
 </pre>
@@ -2086,6 +2097,7 @@ Freq: AS-JAN, Name: Adj Close, dtype: int64</pre>
 </div>
 </div>
 </div>
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
@@ -2183,7 +2195,7 @@ Freq: AS-JAN, Name: Adj Close, dtype: int64</pre>
     </div>     </div> 
 <footer>
 <br />
-<p><a href=".">adriantorrie.github.io</a> &copy; Adrian Torrie 2016</p>
+<p><a href=".">adriantorrie.github.io</a> &copy; Adrian Torrie 2017</p>
 </footer>
 
 </div> <!-- /container -->
