@@ -1,74 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>adriantorrie.github.io - A basic blog for Python data science</title>
-    <meta name="description" content="">
-    <meta name="author" content="Adrian Torrie">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-    <script src="http://adriantorrie.github.io/theme/html5.js"></script>
-    <![endif]-->
-
-    <!-- Le styles -->
-    <link href="http://adriantorrie.github.io/theme/bootstrap.min.css" rel="stylesheet">
-    <link href="http://adriantorrie.github.io/theme/bootstrap.min.responsive.css" rel="stylesheet">
-    <link href="http://adriantorrie.github.io/theme/local.css" rel="stylesheet">
-    <link href="http://adriantorrie.github.io/theme/pygments.css" rel="stylesheet">
-
-    <!-- So Firefox can bookmark->"abo this site" -->
-        <link href="http://adriantorrie.github.io/feeds/all.atom.xml" rel="alternate" title="adriantorrie.github.io" type="application/atom+xml">
-
-</head>
-
-<body>
-
-<div class="navbar">
-    <div class="navbar-inner">
-    <div class="container">
-
-         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-         </a>
-
-        <a class="brand" href="http://adriantorrie.github.io">adriantorrie.github.io</a>
-
-        <div class="nav-collapse">
-        <ul class="nav">
-            
-        </ul>
-        </div>
-        
-    </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="content">
-    <div class="row">
-
-        <div class="span9">
-    
-
-
-    <div class='article'>
-        <div class="content-title">
-            <h1>A basic blog for Python data science</h1>
-Tue 18 October 2016
-
-by <a class="url fn" href="http://adriantorrie.github.io/author/adrian-torrie.html">Adrian Torrie</a>
- 
-
-
-        </div>
-
-
-	
-        <div><style type="text/css">/*!
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>adriantorrie.github.io</title><link href="http://adriantorrie.github.io/" rel="alternate"></link><link href="http://adriantorrie.github.io/feeds/misc.atom.xml" rel="self"></link><id>http://adriantorrie.github.io/</id><updated>2016-10-18T20:14:00+11:00</updated><entry><title>A basic blog for Python data science</title><link href="http://adriantorrie.github.io/a-basic-blog-for-python-data-science.html" rel="alternate"></link><published>2016-10-18T20:14:00+11:00</published><updated>2016-10-18T20:14:00+11:00</updated><author><name>Adrian Torrie</name></author><id>tag:adriantorrie.github.io,2016-10-18:a-basic-blog-for-python-data-science.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -295,7 +226,7 @@ div.unrecognized_cell .inner_cell a:hover {
   text-decoration: none;
 }
 @media (max-width: 540px) {
-  div.unrecognized_cell > div.prompt {
+  div.unrecognized_cell &gt; div.prompt {
     display: none;
   }
 }
@@ -348,19 +279,19 @@ div.input_prompt {
   color: #303F9F;
   border-top: 1px solid transparent;
 }
-div.input_area > div.highlight {
+div.input_area &gt; div.highlight {
   margin: 0.4em;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-div.input_area > div.highlight > pre {
+div.input_area &gt; div.highlight &gt; pre {
   margin: 0px;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-/* The following gets added to the <head> if it is detected that the user has a
+/* The following gets added to the &lt;head&gt; if it is detected that the user has a
  * monospace font with inconsistent normal/bold/italic height.  See
  * notebookmain.js.  Such fonts will have keywords vertically offset with
  * respect to the rest of the text.  The user should select a better font.
@@ -406,7 +337,7 @@ div.input_area > div.highlight > pre {
 }
 /*
 
-Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
 Adapted from GitHub theme
 
 */
@@ -868,7 +799,7 @@ div.text_cell {
   align-items: stretch;
 }
 @media (max-width: 540px) {
-  div.text_cell > div.prompt {
+  div.text_cell &gt; div.prompt {
     display: none;
   }
 }
@@ -933,8 +864,8 @@ h6:hover .anchor-link {
   font-size: 100%;
   font-style: italic;
 }
-</style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
@@ -1002,8 +933,8 @@ h6:hover .anchor-link {
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<style type="text/css">
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
+&lt;style type="text/css"&gt;
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -1039,46 +970,46 @@ h6:hover .anchor-link {
 .ansi-white-intense-bg { background-color: #A1A6B2; }
 
 .ansi-bold { font-weight: bold; }
-</style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Setting up this blog to manage a portfolio of data science work involved the following:</p>
-<ul>
-<li>Setting up a <a href="https://pages.github.com/">Github pages repo</a> named <code><username>.github.io</code></li>
-<li>Setting up <a href="http://blog.getpelican.com/">Pelican</a> using <code>pelican-quickstart</code>, instructions <a href="http://docs.getpelican.com/en/stable/quickstart.html">here</a> and <a href="https://www.dataquest.io/blog/how-to-setup-a-data-science-blog/">here</a></li>
-<li>Installing <a href="https://github.com/getpelican/pelican-plugins/blob/master/Readme.rst"><code>pelican-plugins</code></a> as a submodule</li>
-<li>Adding a few configuration changes to <code>pelicanconf.py</code> for the plugins to work (below)</li>
-<li>Created this page</li>
-<li>From the root directory of the repo I ran:<ul>
-<li><code>pelican content</code></li>
-<li><code>cd output</code></li>
-<li><code>python -m pelican.server</code></li>
-</ul>
-</li>
-<li>Then I opened my browser to <a href="http://localhost:8000/">http://localhost:8000/</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [1]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">PLUGIN_PATHS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'pelican-plugins'</span><span class="p">]</span>
-<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'summary'</span><span class="p">,</span> <span class="s1">'liquid_tags.img'</span><span class="p">,</span> <span class="s1">'liquid_tags.video'</span><span class="p">,</span>
-           <span class="s1">'liquid_tags.include_code'</span><span class="p">,</span> <span class="s1">'liquid_tags.notebook'</span><span class="p">,</span>
-           <span class="s1">'liquid_tags.literal'</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
+&lt;/style&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Setting up this blog to manage a portfolio of data science work involved the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Setting up a &lt;a href="https://pages.github.com/"&gt;Github pages repo&lt;/a&gt; named &lt;code&gt;&lt;username&gt;.github.io&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Setting up &lt;a href="http://blog.getpelican.com/"&gt;Pelican&lt;/a&gt; using &lt;code&gt;pelican-quickstart&lt;/code&gt;, instructions &lt;a href="http://docs.getpelican.com/en/stable/quickstart.html"&gt;here&lt;/a&gt; and &lt;a href="https://www.dataquest.io/blog/how-to-setup-a-data-science-blog/"&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Installing &lt;a href="https://github.com/getpelican/pelican-plugins/blob/master/Readme.rst"&gt;&lt;code&gt;pelican-plugins&lt;/code&gt;&lt;/a&gt; as a submodule&lt;/li&gt;
+&lt;li&gt;Adding a few configuration changes to &lt;code&gt;pelicanconf.py&lt;/code&gt; for the plugins to work (below)&lt;/li&gt;
+&lt;li&gt;Created this page&lt;/li&gt;
+&lt;li&gt;From the root directory of the repo I ran:&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pelican content&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cd output&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;python -m pelican.server&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Then I opened my browser to &lt;a href="http://localhost:8000/"&gt;http://localhost:8000/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;PLUGIN_PATHS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'pelican-plugins'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;'summary'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'liquid_tags.img'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'liquid_tags.video'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+           &lt;span class="s1"&gt;'liquid_tags.include_code'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'liquid_tags.notebook'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+           &lt;span class="s1"&gt;'liquid_tags.literal'&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -1104,86 +1035,4 @@ h6:hover .anchor-link {
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script></div>
-	
-        <hr>
-
-        <h2>Comments</h2>
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'adriantorrie-github-io'; 
-    var disqus_title = 'A basic blog for Python data science';
-
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    </div>
-        </div>
-        
-        <div class="span3">
-
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header"> 
-                Site
-                </li>
-            
-                <li><a href="http://adriantorrie.github.io/archives.html">Archives</a>
-                <li><a href="http://adriantorrie.github.io/tags.html">Tags</a>
-
-
-
-                <li><a href="http://adriantorrie.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
-
-            </ul>
-            </div>
-
-
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header"> 
-                Categories
-                </li>
-                
-                <li><a href="http://adriantorrie.github.io/category/misc.html">Misc</a></li>
-                <li><a href="http://adriantorrie.github.io/category/quant.html">Quant</a></li>
-                   
-            </ul>
-            </div>
-
-
-
-
-            <div class="social">
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header"> 
-                Social
-                </li>
-           
-                <li><a href="https://github.com/adriantorrie">Github</a></li>
-                <li><a href="http://stackoverflow.com/story/adriantorrie">Stackoverflow</a></li>
-                <li><a href="https://au.linkedin.com/in/adriantorrie">LinkedIn</a></li>
-            </ul>
-            </div>
-            </div>
-
-        </div>  
-    </div>     </div> 
-<footer>
-<br />
-<p><a href="http://adriantorrie.github.io">adriantorrie.github.io</a> &copy; Adrian Torrie 2017</p>
-</footer>
-
-</div> <!-- /container -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="http://adriantorrie.github.io/theme/bootstrap-collapse.js"></script>
-<script>var _gaq=[['_setAccount','UA-41099240-3'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
-<a href="https://github.com/adriantorrie"><img style="position: absolute; top: 40px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
- 
-</body>
-</html>
+&lt;/script&gt;</summary><category term="pelican"></category></entry></feed>
