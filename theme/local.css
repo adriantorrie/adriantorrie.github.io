@@ -27,9 +27,9 @@
 /* Styling for elements */
 body { font-size: 100%; }
 p { font-size: 90%; line-height: 1.4; margin-top: 0.8em; margin-bottom: 0.8em; }
-li { line-height: 1.4; }
-h1, h2, h3, h4, h5 { margin-top: 1.5; }
-.table th, .table td { line-height: 1.4; }
+li { font-size: 90%; line-height: 1.4; }
+h1, h2, h3, h4, h5 { font-size: 90%; margin-top: 1.5; }
+.table th, .table td { font-size: 90%; line-height: 1.4; }
 
 /* Styling for articles */
 .article { padding-bottom:20px; padding-right: 40px; }

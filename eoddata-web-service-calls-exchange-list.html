@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>adriantorrie.github.io - Using Python to return an exchange list from the Eoddata.com web service, into a pandas dataframe</title>
+    <meta name="description" content="">
+    <meta name="author" content="Adrian Torrie">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="./theme/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/nbextension-toc.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+        <link href="https://adriantorrie.github.io/feeds/all.atom.xml" rel="alternate" title="adriantorrie.github.io" type="application/atom+xml">
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a class="brand" href=".">adriantorrie.github.io</a>
+
+        <div class="nav-collapse">
+        <ul class="nav">
+            
+        </ul>
+        </div>
+        
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+    
+
+
+    <div class='article'>
+        <div class="content-title">
+            <h1>Using Python to return an exchange list from the Eoddata.com web service, into a pandas dataframe</h1>
+Sat 25 March 2017
+
+by <a class="url fn" href="./author/adrian-torrie.html">Adrian Torrie</a>
+ 
+
+
+        </div>
+
+            <p>This post is part 3 of the "Using Python with Eoddata.com web service" series:</p>
+            <ol class="parts">
+                    <li >
+                        <a href='./using-python-with-eoddata-web-service.html'>Using Python with Eoddata.com web service - Master post</a>
+                    </li>
+                    <li >
+                        <a href='./eoddata-web-service-calls-login.html'>Using Python to login to the Eoddata.com web service</a>
+                    </li>
+                    <li class="active">
+                        <a href='./eoddata-web-service-calls-exchange-list.html'>Using Python to return an exchange list from the Eoddata.com web service, into a pandas dataframe</a>
+                    </li>
+            </ol>
+
+	
+        <div><style type="text/css">/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI colors. */
+.ansibold {
+  font-weight: bold;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected {
+  border-color: #ababab;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  div.cell.selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  padding: 0.4em;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+.rendered_html pre,
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+.rendered_html td,
+
+
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h1><p><p><div class="lev1 toc-item"><a data-toc-modified-id="Summary-1" href="#Summary"><span class="toc-item-num">1  </span>Summary</a></div><div class="lev1 toc-item"><a data-toc-modified-id="Version-Control-2" href="#Version-Control"><span class="toc-item-num">2  </span>Version Control</a></div><div class="lev1 toc-item"><a data-toc-modified-id="Change-Log-3" href="#Change-Log"><span class="toc-item-num">3  </span>Change Log</a></div><div class="lev1 toc-item"><a data-toc-modified-id="Setup-4" href="#Setup"><span class="toc-item-num">4  </span>Setup</a></div><div class="lev1 toc-item"><a data-toc-modified-id="ExchangeList()-5" href="#ExchangeList()"><span class="toc-item-num">5  </span>ExchangeList()</a></div><div class="lev2 toc-item"><a data-toc-modified-id="Web-service-call-51" href="#Web-service-call"><span class="toc-item-num">5.1  </span>Web service call</a></div><div class="lev3 toc-item"><a data-toc-modified-id="Gather-elements-511" href="#Gather-elements"><span class="toc-item-num">5.1.1  </span>Gather elements</a></div><div class="lev3 toc-item"><a data-toc-modified-id="Get-data-512" href="#Get-data"><span class="toc-item-num">5.1.2  </span>Get data</a></div><div class="lev3 toc-item"><a data-toc-modified-id="Save-to-file-513" href="#Save-to-file"><span class="toc-item-num">5.1.3  </span>Save to file</a></div><div class="lev3 toc-item"><a data-toc-modified-id="Data-inspection-514" href="#Data-inspection"><span class="toc-item-num">5.1.4  </span>Data inspection</a></div><div class="lev2 toc-item"><a data-toc-modified-id="Helper-function-52" href="#Helper-function"><span class="toc-item-num">5.2  </span>Helper function</a></div><div class="lev3 toc-item"><a data-toc-modified-id="Usage-521" href="#Usage"><span class="toc-item-num">5.2.1  </span>Usage</a></div><div class="lev2 toc-item"><a data-toc-modified-id="Client-function-53" href="#Client-function"><span class="toc-item-num">5.3  </span>Client function</a></div></p>
+</p></div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>Part of the blog series related to making web service calls to Eoddata.com. Overview of the web service can be found <a href="http://ws.eoddata.com/data.asmx">here</a>.</p>
+<ul>
+<li><strong> View the master post of this series to build a secure credentials file.</strong> It is used in all posts related to this series.</li>
+<li>Download the <a href="https://adriantorrie.github.io/downloads/code/eoddata.py">class definition file</a> for an easy to use client, which is demonstrated below</li>
+<li>This post covers the <code>ExchangeList</code> call: <a href="http://ws.eoddata.com/data.asmx?op=ExchangeList">http://ws.eoddata.com/data.asmx?op=ExchangeList</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Version-Control">Version Control<a class="anchor-link" href="#Version-Control">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> ../../code/version_check.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Python: 3.5.3 |Continuum Analytics, Inc.| (default, Feb 22 2017, 21:13:27) 
+[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]
+
+matplotlib:	2.0.0
+numpy:		1.12.0
+pandas:		0.19.2
+quandl:		3.0.1
+requests:	2.12.4
+sklearn:	0.18.1
+scipy:		0.18.1
+statsmodels:	0.8.0
+tensorflow:	1.0.1
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Change-Log">Change Log<a class="anchor-link" href="#Change-Log">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<pre><code>Date Created: 2017-03-25
+
+Date of Change    Change Notes
+--------------    ----------------------------------------------------------------
+2017-03-25        Initial draft</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Setup">Setup<a class="anchor-link" href="#Setup">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> ../../code/eoddata.py
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">requests</span> <span class="k">as</span> <span class="nn">r</span>
+
+<span class="n">ws</span> <span class="o">=</span> <span class="s1">'http://ws.eoddata.com/data.asmx'</span>
+<span class="n">ns</span><span class="o">=</span><span class="s1">'http://ws.eoddata.com/Data'</span>
+
+<span class="k">with</span> <span class="p">(</span><span class="n">Client</span><span class="p">())</span> <span class="k">as</span> <span class="n">eoddata</span><span class="p">:</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">eoddata</span><span class="o">.</span><span class="n">get_token</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="ExchangeList()">ExchangeList()<a class="anchor-link" href="#ExchangeList()">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Web-service-call">Web service call<a class="anchor-link" href="#Web-service-call">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+
+<span class="n">call</span> <span class="o">=</span> <span class="s1">'ExchangeList'</span>
+<span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Token'</span><span class="p">:</span> <span class="n">token</span><span class="p">,}</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">".//{</span><span class="si">%s</span><span class="s2">}EXCHANGE"</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">'/'</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">ws</span><span class="p">,</span> <span class="n">call</span><span class="p">))</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
+    
+<span class="n">session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Gather-elements">Gather elements<a class="anchor-link" href="#Gather-elements">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">elements</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span> <span class="o">%</span><span class="p">(</span><span class="n">ns</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Get-data">Get data<a class="anchor-link" href="#Get-data">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">exchanges</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Code'</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">)</span>
+<span class="n">exchanges</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>['AMEX',
+ 'AMS',
+ 'ASX',
+ 'BRU',
+ 'BSE',
+ 'CBOT',
+ 'CFE',
+ 'CME',
+ 'COMEX',
+ 'EUREX',
+ 'FOREX',
+ 'HKEX',
+ 'INDEX',
+ 'KCBT',
+ 'LIFFE',
+ 'LIS',
+ 'LSE',
+ 'MGEX',
+ 'MLSE',
+ 'NASDAQ',
+ 'NSE',
+ 'NYBOT',
+ 'NYMEX',
+ 'NYSE',
+ 'NZX',
+ 'OTCBB',
+ 'PAR',
+ 'SGX',
+ 'TSX',
+ 'TSXV',
+ 'USMF',
+ 'WCE']</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Save-to-file">Save to file<a class="anchor-link" href="#Save-to-file">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'../../data/exchanges.csv'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'"</span><span class="si">%s</span><span class="s1">"</span><span class="se">\n</span><span class="s1">'</span> <span class="o">%</span> <span class="s1">'","'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Data-inspection">Data inspection<a class="anchor-link" href="#Data-inspection">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>('Source', 'Data.ExchangeList')
+('Date', '2017-03-24T22:08:18.206625-05:00')
+('Message', 'Success')
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{'Source': 'Data.ExchangeList', 'Date': '2017-03-24T22:08:18.206625-05:00', 'Message': 'Success'}
+{}
+{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T09:37:25', 'Country': 'US', 'IntradayStartDate': '2008-01-01T00:00:00', 'Declines': '897', 'Advances': '3223', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'American Stock Exchange', 'IsIntraday': 'true', 'Code': 'AMEX', 'Currency': 'USD'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'AU', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '494', 'Advances': '14939', 'TimeZone': 'AUS Eastern Standard Time', 'Suffix': 'AX', 'Name': 'Australian Securities Exchange', 'IsIntraday': 'false', 'Code': 'ASX', 'Currency': 'AUD'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'IN', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '4370', 'TimeZone': 'India Standard Time', 'Suffix': 'I', 'Name': 'Bombay Stock Exchange', 'IsIntraday': 'false', 'Code': 'BSE', 'Currency': 'INR'}
+{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '234', 'Advances': '101646', 'TimeZone': 'Central Standard Time', 'Suffix': '', 'Name': 'Chicago Board of Trade', 'IsIntraday': 'true', 'Code': 'CBOT', 'Currency': 'USD'}
+{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '0', 'Advances': '195', 'TimeZone': 'Central Standard Time', 'Suffix': '', 'Name': 'Chicago Futures Exchange', 'IsIntraday': 'true', 'Code': 'CFE', 'Currency': 'USD'}
+{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '569', 'Advances': '211497', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'Chicago Merchantile Exchange', 'IsIntraday': 'true', 'Code': 'CME', 'Currency': 'USD'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'CH', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '1853', 'TimeZone': 'GMT Standard Time', 'Suffix': '', 'Name': 'EUREX Futures Exchange', 'IsIntraday': 'false', 'Code': 'EUREX', 'Currency': 'EUR'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'NL', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '149', 'TimeZone': 'GMT Standard Time', 'Suffix': 'AS', 'Name': 'Euronext Amsterdam', 'IsIntraday': 'false', 'Code': 'AMS', 'Currency': 'EUR'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'BE', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '196', 'TimeZone': 'GMT Standard Time', 'Suffix': 'BR', 'Name': 'Euronext Brussels', 'IsIntraday': 'false', 'Code': 'BRU', 'Currency': 'EUR'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'PT', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '50', 'TimeZone': 'GMT Standard Time', 'Suffix': 'LS', 'Name': 'Euronext Lisbon', 'IsIntraday': 'false', 'Code': 'LIS', 'Currency': 'EUR'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T09:00:00', 'Country': 'FR', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '1817', 'TimeZone': 'GMT Standard Time', 'Suffix': 'PA', 'Name': 'Euronext Paris', 'IsIntraday': 'false', 'Code': 'PAR', 'Currency': 'EUR'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T16:11:28', 'Country': 'US', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '57', 'Advances': '946', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'Foreign Exchange', 'IsIntraday': 'false', 'Code': 'FOREX', 'Currency': ''}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T10:02:00', 'Country': 'US', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '4', 'Advances': '2750', 'TimeZone': 'Eastern Standard Time', 'Suffix': 'IDX', 'Name': 'Global Indices', 'IsIntraday': 'false', 'Code': 'INDEX', 'Currency': ''}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'HK', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '700', 'Advances': '1983', 'TimeZone': 'Singapore Standard Time', 'Suffix': 'HK', 'Name': 'Hong Kong Stock Exchange', 'IsIntraday': 'false', 'Code': 'HKEX', 'Currency': 'HKD'}
+{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '21', 'Advances': '2094', 'TimeZone': 'Central Standard Time', 'Suffix': '', 'Name': 'Kansas City Board of Trade', 'IsIntraday': 'true', 'Code': 'KCBT', 'Currency': 'USD'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '2085', 'TimeZone': 'GMT Standard Time', 'Suffix': '', 'Name': 'LIFFE Futures and Options', 'IsIntraday': 'false', 'Code': 'LIFFE', 'Currency': 'USD'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'UK', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '2622', 'Advances': '38220', 'TimeZone': 'GMT Standard Time', 'Suffix': 'L', 'Name': 'London Stock Exchange', 'IsIntraday': 'false', 'Code': 'LSE', 'Currency': 'GBP'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'IT', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '112', 'Advances': '181', 'TimeZone': 'Central European Standard Time', 'Suffix': 'MI', 'Name': 'Milan Stock Exchange', 'IsIntraday': 'false', 'Code': 'MLSE', 'Currency': 'EUR'}
+{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '96', 'Advances': '14989', 'TimeZone': 'Central Standard Time', 'Suffix': '', 'Name': 'Minneapolis Grain Exchange', 'IsIntraday': 'true', 'Code': 'MGEX', 'Currency': 'USD'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-23T00:00:00', 'Country': 'US', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '16958', 'Advances': '31956', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'Mutual Funds', 'IsIntraday': 'false', 'Code': 'USMF', 'Currency': 'USD'}
+{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T15:29:09', 'Country': 'US', 'IntradayStartDate': '2008-01-01T00:00:00', 'Declines': '1837', 'Advances': '5598', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'NASDAQ Stock Exchange', 'IsIntraday': 'true', 'Code': 'NASDAQ', 'Currency': 'USD'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T09:10:00', 'Country': 'IN', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '1254', 'TimeZone': 'GMT Standard Time', 'Suffix': 'I', 'Name': 'National Stock Exchange of India', 'IsIntraday': 'false', 'Code': 'NSE', 'Currency': 'INR'}
+{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '207', 'Advances': '88181', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'New York Board of Trade', 'IsIntraday': 'true', 'Code': 'NYBOT', 'Currency': 'USD'}
+{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '150', 'Advances': '33448', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'New York Commodity Exchange', 'IsIntraday': 'true', 'Code': 'COMEX', 'Currency': 'USD'}
+{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '237', 'Advances': '17179', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'New York Merchantile Exchange', 'IsIntraday': 'true', 'Code': 'NYMEX', 'Currency': 'USD'}
+{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T16:59:59', 'Country': 'US', 'IntradayStartDate': '2008-01-01T00:00:00', 'Declines': '1880', 'Advances': '4687', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'New York Stock Exchange', 'IsIntraday': 'true', 'Code': 'NYSE', 'Currency': 'USD'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'NZ', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '44', 'Advances': '1061', 'TimeZone': 'New Zealand Standard Time', 'Suffix': 'NZ', 'Name': 'New Zealand Exchange', 'IsIntraday': 'false', 'Code': 'NZX', 'Currency': 'NZD'}
+{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T09:37:26', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '2112', 'Advances': '34817', 'TimeZone': 'Eastern Standard Time', 'Suffix': 'OB', 'Name': 'OTC Bulletin Board', 'IsIntraday': 'true', 'Code': 'OTCBB', 'Currency': 'USD'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'SG', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '499', 'Advances': '12435', 'TimeZone': 'Singapore Standard Time', 'Suffix': 'SI', 'Name': 'Singapore Stock Exchange', 'IsIntraday': 'false', 'Code': 'SGX', 'Currency': 'SGD'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'CA', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '882', 'Advances': '5746', 'TimeZone': 'Mountain Standard Time', 'Suffix': 'TO', 'Name': 'Toronto Stock Exchange', 'IsIntraday': 'false', 'Code': 'TSX', 'Currency': 'CAD'}
+{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'CA', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '562', 'Advances': '5035', 'TimeZone': 'Mountain Standard Time', 'Suffix': 'V', 'Name': 'Toronto Venture Exchange', 'IsIntraday': 'false', 'Code': 'TSXV', 'Currency': 'CAD'}
+{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '1', 'Advances': '9981', 'TimeZone': 'Central Standard Time', 'Suffix': '', 'Name': 'Winnipeg Commodity Exchange', 'IsIntraday': 'true', 'Code': 'WCE', 'Currency': 'USD'}
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Helper-function">Helper function<a class="anchor-link" href="#Helper-function">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">ExchangeList</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+    <span class="n">call</span> <span class="o">=</span> <span class="s1">'ExchangeList'</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Token'</span><span class="p">:</span> <span class="n">token</span><span class="p">,}</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="s2">".//{</span><span class="si">%s</span><span class="s2">}EXCHANGE"</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">'/'</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">ws</span><span class="p">,</span> <span class="n">call</span><span class="p">))</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">root</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
+        
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Code'</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Usage">Usage<a class="anchor-link" href="#Usage">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
+
+<span class="n">exchanges</span> <span class="o">=</span> <span class="n">ExchangeList</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+<span class="n">exchanges</span>
+
+<span class="n">session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Client-function">Client function<a class="anchor-link" href="#Client-function">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pandas dataframe is returned</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eoddata</span><span class="o">.</span><span class="n">get_exchange_list</span><span class="p">()</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>HasIntradayProduct</th>
+<th>LastTradeDateTime</th>
+<th>Country</th>
+<th>IntradayStartDate</th>
+<th>Declines</th>
+<th>Advances</th>
+<th>TimeZone</th>
+<th>Suffix</th>
+<th>Name</th>
+<th>IsIntraday</th>
+<th>Code</th>
+<th>Currency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>true</td>
+<td>2017-03-24T09:37:25</td>
+<td>US</td>
+<td>2008-01-01T00:00:00</td>
+<td>897</td>
+<td>3223</td>
+<td>Eastern Standard Time</td>
+<td></td>
+<td>American Stock Exchange</td>
+<td>true</td>
+<td>AMEX</td>
+<td>USD</td>
+</tr>
+<tr>
+<th>1</th>
+<td>false</td>
+<td>2017-03-24T00:00:00</td>
+<td>AU</td>
+<td>0001-01-01T00:00:00</td>
+<td>494</td>
+<td>14939</td>
+<td>AUS Eastern Standard Time</td>
+<td>AX</td>
+<td>Australian Securities Exchange</td>
+<td>false</td>
+<td>ASX</td>
+<td>AUD</td>
+</tr>
+<tr>
+<th>2</th>
+<td>false</td>
+<td>2017-03-24T00:00:00</td>
+<td>IN</td>
+<td>0001-01-01T00:00:00</td>
+<td>0</td>
+<td>4370</td>
+<td>India Standard Time</td>
+<td>I</td>
+<td>Bombay Stock Exchange</td>
+<td>false</td>
+<td>BSE</td>
+<td>INR</td>
+</tr>
+<tr>
+<th>3</th>
+<td>true</td>
+<td>2017-03-24T00:00:00</td>
+<td>US</td>
+<td>2009-01-01T00:00:00</td>
+<td>234</td>
+<td>101646</td>
+<td>Central Standard Time</td>
+<td></td>
+<td>Chicago Board of Trade</td>
+<td>true</td>
+<td>CBOT</td>
+<td>USD</td>
+</tr>
+<tr>
+<th>4</th>
+<td>true</td>
+<td>2017-03-24T00:00:00</td>
+<td>US</td>
+<td>2009-01-01T00:00:00</td>
+<td>0</td>
+<td>195</td>
+<td>Central Standard Time</td>
+<td></td>
+<td>Chicago Futures Exchange</td>
+<td>true</td>
+<td>CFE</td>
+<td>USD</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script></div>
+	
+        <hr>
+
+        <h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'adriantorrie-github-io'; 
+    var disqus_title = 'Using Python to return an exchange list from the Eoddata.com web service, into a pandas dataframe';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+        </div>
+        
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Site
+                </li>
+            
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
+
+
+
+                <li><a href="https://adriantorrie.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Categories
+                </li>
+                
+                <li><a href="./category/eoddata.html">Eoddata</a></li>
+                <li><a href="./category/misc.html">Misc</a></li>
+                <li><a href="./category/quant.html">Quant</a></li>
+                <li><a href="./category/udacity-notes.html">Udacity Notes</a></li>
+                   
+            </ul>
+            </div>
+
+
+
+
+            <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header"> 
+                Social
+                </li>
+           
+                <li><a href="https://github.com/adriantorrie">Github</a></li>
+                <li><a href="http://stackoverflow.com/story/adriantorrie">Stackoverflow</a></li>
+                <li><a href="https://au.linkedin.com/in/adriantorrie">LinkedIn</a></li>
+            </ul>
+            </div>
+            </div>
+
+        </div>  
+    </div>     </div> 
+<footer>
+<br />
+<p><a href=".">adriantorrie.github.io</a> &copy; Adrian Torrie 2017</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
+<script>var _gaq=[['_setAccount','UA-41099240-3'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+<a href="https://github.com/adriantorrie/adriantorrie.github.io_src/content"><img style="position: absolute; top: 40px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
+ 
+</body>
+</html>
