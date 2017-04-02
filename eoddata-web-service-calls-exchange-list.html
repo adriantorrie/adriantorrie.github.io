@@ -81,6 +81,9 @@ by <a class="url fn" href="./author/adrian-torrie.html">Adrian Torrie</a>
                     <li >
                         <a href='./eoddata-web-service-calls-country-list.html'>CountryList() - Eoddata.com web service blog series</a>
                     </li>
+                    <li >
+                        <a href='./eoddata-web-service-calls-symbol-list.html'>SymbolList() - Eoddata.com web service blog series</a>
+                    </li>
             </ol>
 
 	
@@ -1139,7 +1142,8 @@ tensorflow:	1.0.1
 Date of Change    Change Notes
 --------------    ----------------------------------------------------------------
 2017-03-25        Initial draft
-2017-04-02        Changed any references for `get_exchange_list()` to `exchange_list()`</code></pre>
+2017-04-02        - Changed any references for `get_exchange_list()` to `exchange_list()`
+                  - Client class function returns data in fixed order now</code></pre>
 </div>
 </div>
 </div>
@@ -1154,7 +1158,7 @@ Date of Change    Change Notes
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> ../../code/eoddata.py
@@ -1495,95 +1499,95 @@ Date of Change    Change Notes
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>Currency</th>
-<th>IsIntraday</th>
-<th>Declines</th>
-<th>Name</th>
-<th>Suffix</th>
-<th>LastTradeDateTime</th>
-<th>Advances</th>
-<th>IntradayStartDate</th>
-<th>HasIntradayProduct</th>
 <th>Code</th>
+<th>Name</th>
+<th>LastTradeDateTime</th>
 <th>Country</th>
+<th>Currency</th>
+<th>Advances</th>
+<th>Declines</th>
+<th>Suffix</th>
 <th>TimeZone</th>
+<th>IsIntraday</th>
+<th>cntradayStartDate</th>
+<th>HasIntradayProduct</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <th>0</th>
-<td>USD</td>
-<td>true</td>
-<td>897</td>
-<td>American Stock Exchange</td>
-<td></td>
-<td>2017-03-31T16:59:58</td>
-<td>3196</td>
-<td>2008-01-01T00:00:00</td>
-<td>true</td>
 <td>AMEX</td>
+<td>American Stock Exchange</td>
+<td>2017-03-31T16:59:58</td>
 <td>US</td>
+<td>USD</td>
+<td>3196</td>
+<td>897</td>
+<td></td>
 <td>Eastern Standard Time</td>
+<td>true</td>
+<td>NaN</td>
+<td>true</td>
 </tr>
 <tr>
 <th>1</th>
-<td>AUD</td>
-<td>false</td>
-<td>494</td>
-<td>Australian Securities Exchange</td>
-<td>AX</td>
-<td>2017-03-31T00:00:00</td>
-<td>14867</td>
-<td>0001-01-01T00:00:00</td>
-<td>false</td>
 <td>ASX</td>
+<td>Australian Securities Exchange</td>
+<td>2017-03-31T00:00:00</td>
 <td>AU</td>
+<td>AUD</td>
+<td>14867</td>
+<td>494</td>
+<td>AX</td>
 <td>AUS Eastern Standard Time</td>
+<td>false</td>
+<td>NaN</td>
+<td>false</td>
 </tr>
 <tr>
 <th>2</th>
-<td>INR</td>
-<td>false</td>
-<td>0</td>
-<td>Bombay Stock Exchange</td>
-<td>I</td>
-<td>2017-03-31T00:00:00</td>
-<td>4673</td>
-<td>0001-01-01T00:00:00</td>
-<td>false</td>
 <td>BSE</td>
+<td>Bombay Stock Exchange</td>
+<td>2017-03-31T00:00:00</td>
 <td>IN</td>
+<td>INR</td>
+<td>4673</td>
+<td>0</td>
+<td>I</td>
 <td>India Standard Time</td>
+<td>false</td>
+<td>NaN</td>
+<td>false</td>
 </tr>
 <tr>
 <th>3</th>
-<td>USD</td>
-<td>true</td>
-<td>234</td>
-<td>Chicago Board of Trade</td>
-<td></td>
-<td>2017-03-31T00:00:00</td>
-<td>101766</td>
-<td>2009-01-01T00:00:00</td>
-<td>true</td>
 <td>CBOT</td>
+<td>Chicago Board of Trade</td>
+<td>2017-03-31T00:00:00</td>
 <td>US</td>
+<td>USD</td>
+<td>101766</td>
+<td>234</td>
+<td></td>
 <td>Central Standard Time</td>
+<td>true</td>
+<td>NaN</td>
+<td>true</td>
 </tr>
 <tr>
 <th>4</th>
-<td>USD</td>
-<td>true</td>
-<td>0</td>
-<td>Chicago Futures Exchange</td>
-<td></td>
-<td>2017-03-31T00:00:00</td>
-<td>207</td>
-<td>2009-01-01T00:00:00</td>
-<td>true</td>
 <td>CFE</td>
+<td>Chicago Futures Exchange</td>
+<td>2017-03-31T00:00:00</td>
 <td>US</td>
+<td>USD</td>
+<td>207</td>
+<td>0</td>
+<td></td>
 <td>Central Standard Time</td>
+<td>true</td>
+<td>NaN</td>
+<td>true</td>
 </tr>
 </tbody>
 </table>

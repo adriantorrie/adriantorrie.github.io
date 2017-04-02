@@ -22,7 +22,7 @@ class Client():
     def __exit__(self, *args):
         self._session.close()
         
-    def _web_call(self, call, kwargs, pattern=None):
+    def _web_call(self, call, kwargs, pattern=None, columns=None):
         """Makes the call to the web sevice.
         
         Args:
@@ -56,12 +56,15 @@ class Client():
                 for item in items:
                     temp.append(OrderedDict(item))
                 
-                return pd.DataFrame(temp)
+                df = pd.DataFrame(temp, columns=columns)
+                return df
     
     def _get_token(self, username=None, password=None):
         # get credentials from file if none are passed in
         if username == None and password == None:
-            credentials_file_path = os.path.join(os.path.expanduser('~'), '.eoddata', 'credentials')
+            credentials_file_path = os.path.join(os.path.expanduser('~'),
+                                                 '.eoddata',
+                                                 'credentials')
             
             # test permissions are 0600 (ONLY user can read/write)
             # do this to ensure the credentials file hasn't been
@@ -115,13 +118,25 @@ class Client():
     def country_list(self):
         call = 'CountryList'
         kwargs = {'Token': self._token,}
-        pattern = ".//{%s}CountryBase"
+        pattern = './/{%s}CountryBase'
+        columns =  ['Code', 'Name']
         
-        return self._web_call(call, kwargs, pattern)
+        return self._web_call(call, kwargs, pattern, columns)
     
     def exchange_list(self):
         call = 'ExchangeList'
         kwargs = {'Token': self._token,}
-        pattern = ".//{%s}EXCHANGE"
+        pattern = './/{%s}EXCHANGE'
+        columns = ['Code', 'Name', 'LastTradeDateTime', 'Country', 'Currency',
+                    'Advances', 'Declines', 'Suffix', 'TimeZone', 'IsIntraday',
+                    'IntradayStartDate', 'HasIntradayProduct']
         
-        return self._web_call(call, kwargs, pattern)
+        return self._web_call(call, kwargs, pattern, columns)
+    
+    def symbol_list(self, exchange_code):
+        call = 'SymbolList'
+        kwargs = {'Token': self._token, 'Exchange': exchange_code}
+        pattern = './/{%s}SYMBOL'
+        columns = ['Code', 'Name', 'LongName', 'DateTime']
+        
+        return self._web_call(call, kwargs, pattern, columns)
