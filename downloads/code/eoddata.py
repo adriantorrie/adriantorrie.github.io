@@ -133,9 +133,20 @@ class Client():
         
         return self._web_call(call, kwargs, pattern, columns)
     
+    def fundamental_list(self, exchange_code):
+        call = 'FundamentalList'
+        kwargs = {'Token': self._token, 'Exchange': exchange_code,}
+        pattern = './/{%s}FUNDAMENTAL'
+        columns = ['Symbol', 'Name', 'Description', 'DateTime', 'Industry',
+                   'Sector', 'Shares', 'MarketCap', 'PE', 'EPS', 'NTA',
+                   'DivYield', 'Dividend', 'DividendDate', 'DPS',
+                   'ImputationCredits', 'EBITDA', 'PEG', 'PtS', 'PtB', 'Yield']
+        
+        return self._web_call(call, kwargs, pattern, columns)
+    
     def symbol_list(self, exchange_code):
         call = 'SymbolList'
-        kwargs = {'Token': self._token, 'Exchange': exchange_code}
+        kwargs = {'Token': self._token, 'Exchange': exchange_code,}
         pattern = './/{%s}SYMBOL'
         columns = ['Code', 'Name', 'LongName', 'DateTime']
         
