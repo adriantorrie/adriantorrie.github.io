@@ -20,10 +20,6 @@ print('pandas:\t\t{}'.format(pandas.__version__))
 import quandl
 print('quandl:\t\t{}'.format(quandl.version.VERSION))
 
-# requests
-import requests
-print('requests:\t{}'.format(requests.__version__))
-
 # scikit-learn
 import sklearn
 print('sklearn:\t{}'.format(sklearn.__version__))

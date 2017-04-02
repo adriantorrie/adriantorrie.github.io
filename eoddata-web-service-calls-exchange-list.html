@@ -2,25 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>adriantorrie.github.io - ExchangeList()</title>
+    <title>adriantorrie.github.io - ExchangeList() - Eoddata.com web service blog series</title>
     <meta name="description" content="">
     <meta name="author" content="Adrian Torrie">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
-    <script src="http://adriantorrie.github.io/theme/html5.js"></script>
+    <script src="./theme/html5.js"></script>
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="http://adriantorrie.github.io/theme/bootstrap.min.css" rel="stylesheet">
-    <link href="http://adriantorrie.github.io/theme/bootstrap.min.responsive.css" rel="stylesheet">
-    <link href="http://adriantorrie.github.io/theme/local.css" rel="stylesheet">
-    <link href="http://adriantorrie.github.io/theme/nbextension-toc.css" rel="stylesheet">
-    <link href="http://adriantorrie.github.io/theme/pygments.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.css" rel="stylesheet">
+    <link href="./theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="./theme/local.css" rel="stylesheet">
+    <link href="./theme/nbextension-toc.css" rel="stylesheet">
+    <link href="./theme/pygments.css" rel="stylesheet">
 
     <!-- So Firefox can bookmark->"abo this site" -->
-        <link href="http://adriantorrie.github.io/feeds/all.atom.xml" rel="alternate" title="adriantorrie.github.io" type="application/atom+xml">
+        <link href="https://adriantorrie.github.io/feeds/all.atom.xml" rel="alternate" title="adriantorrie.github.io" type="application/atom+xml">
 
 </head>
 
@@ -36,7 +36,7 @@
              <span class="icon-bar"></span>
          </a>
 
-        <a class="brand" href="http://adriantorrie.github.io">adriantorrie.github.io</a>
+        <a class="brand" href=".">adriantorrie.github.io</a>
 
         <div class="nav-collapse">
         <ul class="nav">
@@ -58,10 +58,10 @@
 
     <div class='article'>
         <div class="content-title">
-            <h1>ExchangeList()</h1>
+            <h1>ExchangeList() - Eoddata.com web service blog series</h1>
 Sat 25 March 2017
 
-by <a class="url fn" href="http://adriantorrie.github.io/author/adrian-torrie.html">Adrian Torrie</a>
+by <a class="url fn" href="./author/adrian-torrie.html">Adrian Torrie</a>
  
 
 
@@ -70,16 +70,16 @@ by <a class="url fn" href="http://adriantorrie.github.io/author/adrian-torrie.ht
             <p>This post is part 3 of the "Using Python with Eoddata.com web service" series:</p>
             <ol class="parts">
                     <li >
-                        <a href='http://adriantorrie.github.io/using-python-with-eoddata-web-service.html'>Using Python with Eoddata.com web service - Master post</a>
+                        <a href='./using-python-with-eoddata-web-service.html'>Master post - Eoddata.com web service blog series</a>
                     </li>
                     <li >
-                        <a href='http://adriantorrie.github.io/eoddata-web-service-calls-login.html'>Login()</a>
+                        <a href='./eoddata-web-service-calls-login.html'>Login() - Eoddata.com web service blog series</a>
                     </li>
                     <li class="active">
-                        <a href='http://adriantorrie.github.io/eoddata-web-service-calls-exchange-list.html'>ExchangeList()</a>
+                        <a href='./eoddata-web-service-calls-exchange-list.html'>ExchangeList() - Eoddata.com web service blog series</a>
                     </li>
                     <li >
-                        <a href='http://adriantorrie.github.io/eoddata-web-service-calls-country-list.html'>CountryList()</a>
+                        <a href='./eoddata-web-service-calls-country-list.html'>CountryList() - Eoddata.com web service blog series</a>
                     </li>
             </ol>
 
@@ -1110,7 +1110,6 @@ matplotlib:	2.0.0
 numpy:		1.12.0
 pandas:		0.19.2
 quandl:		3.0.1
-requests:	2.12.4
 sklearn:	0.18.1
 scipy:		0.18.1
 statsmodels:	0.8.0
@@ -1343,9 +1342,9 @@ Date of Change    Change Notes
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>('Source', 'Data.ExchangeList')
-('Date', '2017-03-24T22:08:18.206625-05:00')
-('Message', 'Success')
+<pre>('Message', 'Success')
+('Source', 'Data.ExchangeList')
+('Date', '2017-04-02T01:24:40.658625-05:00')
 </pre>
 </div>
 </div>
@@ -1368,40 +1367,40 @@ Date of Change    Change Notes
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{'Source': 'Data.ExchangeList', 'Date': '2017-03-24T22:08:18.206625-05:00', 'Message': 'Success'}
+<pre>{'Message': 'Success', 'Source': 'Data.ExchangeList', 'Date': '2017-04-02T01:24:40.658625-05:00'}
 {}
-{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T09:37:25', 'Country': 'US', 'IntradayStartDate': '2008-01-01T00:00:00', 'Declines': '897', 'Advances': '3223', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'American Stock Exchange', 'IsIntraday': 'true', 'Code': 'AMEX', 'Currency': 'USD'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'AU', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '494', 'Advances': '14939', 'TimeZone': 'AUS Eastern Standard Time', 'Suffix': 'AX', 'Name': 'Australian Securities Exchange', 'IsIntraday': 'false', 'Code': 'ASX', 'Currency': 'AUD'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'IN', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '4370', 'TimeZone': 'India Standard Time', 'Suffix': 'I', 'Name': 'Bombay Stock Exchange', 'IsIntraday': 'false', 'Code': 'BSE', 'Currency': 'INR'}
-{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '234', 'Advances': '101646', 'TimeZone': 'Central Standard Time', 'Suffix': '', 'Name': 'Chicago Board of Trade', 'IsIntraday': 'true', 'Code': 'CBOT', 'Currency': 'USD'}
-{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '0', 'Advances': '195', 'TimeZone': 'Central Standard Time', 'Suffix': '', 'Name': 'Chicago Futures Exchange', 'IsIntraday': 'true', 'Code': 'CFE', 'Currency': 'USD'}
-{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '569', 'Advances': '211497', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'Chicago Merchantile Exchange', 'IsIntraday': 'true', 'Code': 'CME', 'Currency': 'USD'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'CH', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '1853', 'TimeZone': 'GMT Standard Time', 'Suffix': '', 'Name': 'EUREX Futures Exchange', 'IsIntraday': 'false', 'Code': 'EUREX', 'Currency': 'EUR'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'NL', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '149', 'TimeZone': 'GMT Standard Time', 'Suffix': 'AS', 'Name': 'Euronext Amsterdam', 'IsIntraday': 'false', 'Code': 'AMS', 'Currency': 'EUR'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'BE', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '196', 'TimeZone': 'GMT Standard Time', 'Suffix': 'BR', 'Name': 'Euronext Brussels', 'IsIntraday': 'false', 'Code': 'BRU', 'Currency': 'EUR'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'PT', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '50', 'TimeZone': 'GMT Standard Time', 'Suffix': 'LS', 'Name': 'Euronext Lisbon', 'IsIntraday': 'false', 'Code': 'LIS', 'Currency': 'EUR'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T09:00:00', 'Country': 'FR', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '1817', 'TimeZone': 'GMT Standard Time', 'Suffix': 'PA', 'Name': 'Euronext Paris', 'IsIntraday': 'false', 'Code': 'PAR', 'Currency': 'EUR'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T16:11:28', 'Country': 'US', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '57', 'Advances': '946', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'Foreign Exchange', 'IsIntraday': 'false', 'Code': 'FOREX', 'Currency': ''}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T10:02:00', 'Country': 'US', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '4', 'Advances': '2750', 'TimeZone': 'Eastern Standard Time', 'Suffix': 'IDX', 'Name': 'Global Indices', 'IsIntraday': 'false', 'Code': 'INDEX', 'Currency': ''}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'HK', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '700', 'Advances': '1983', 'TimeZone': 'Singapore Standard Time', 'Suffix': 'HK', 'Name': 'Hong Kong Stock Exchange', 'IsIntraday': 'false', 'Code': 'HKEX', 'Currency': 'HKD'}
-{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '21', 'Advances': '2094', 'TimeZone': 'Central Standard Time', 'Suffix': '', 'Name': 'Kansas City Board of Trade', 'IsIntraday': 'true', 'Code': 'KCBT', 'Currency': 'USD'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '2085', 'TimeZone': 'GMT Standard Time', 'Suffix': '', 'Name': 'LIFFE Futures and Options', 'IsIntraday': 'false', 'Code': 'LIFFE', 'Currency': 'USD'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'UK', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '2622', 'Advances': '38220', 'TimeZone': 'GMT Standard Time', 'Suffix': 'L', 'Name': 'London Stock Exchange', 'IsIntraday': 'false', 'Code': 'LSE', 'Currency': 'GBP'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'IT', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '112', 'Advances': '181', 'TimeZone': 'Central European Standard Time', 'Suffix': 'MI', 'Name': 'Milan Stock Exchange', 'IsIntraday': 'false', 'Code': 'MLSE', 'Currency': 'EUR'}
-{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '96', 'Advances': '14989', 'TimeZone': 'Central Standard Time', 'Suffix': '', 'Name': 'Minneapolis Grain Exchange', 'IsIntraday': 'true', 'Code': 'MGEX', 'Currency': 'USD'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-23T00:00:00', 'Country': 'US', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '16958', 'Advances': '31956', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'Mutual Funds', 'IsIntraday': 'false', 'Code': 'USMF', 'Currency': 'USD'}
-{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T15:29:09', 'Country': 'US', 'IntradayStartDate': '2008-01-01T00:00:00', 'Declines': '1837', 'Advances': '5598', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'NASDAQ Stock Exchange', 'IsIntraday': 'true', 'Code': 'NASDAQ', 'Currency': 'USD'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T09:10:00', 'Country': 'IN', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '0', 'Advances': '1254', 'TimeZone': 'GMT Standard Time', 'Suffix': 'I', 'Name': 'National Stock Exchange of India', 'IsIntraday': 'false', 'Code': 'NSE', 'Currency': 'INR'}
-{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '207', 'Advances': '88181', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'New York Board of Trade', 'IsIntraday': 'true', 'Code': 'NYBOT', 'Currency': 'USD'}
-{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '150', 'Advances': '33448', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'New York Commodity Exchange', 'IsIntraday': 'true', 'Code': 'COMEX', 'Currency': 'USD'}
-{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '237', 'Advances': '17179', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'New York Merchantile Exchange', 'IsIntraday': 'true', 'Code': 'NYMEX', 'Currency': 'USD'}
-{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T16:59:59', 'Country': 'US', 'IntradayStartDate': '2008-01-01T00:00:00', 'Declines': '1880', 'Advances': '4687', 'TimeZone': 'Eastern Standard Time', 'Suffix': '', 'Name': 'New York Stock Exchange', 'IsIntraday': 'true', 'Code': 'NYSE', 'Currency': 'USD'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'NZ', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '44', 'Advances': '1061', 'TimeZone': 'New Zealand Standard Time', 'Suffix': 'NZ', 'Name': 'New Zealand Exchange', 'IsIntraday': 'false', 'Code': 'NZX', 'Currency': 'NZD'}
-{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T09:37:26', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '2112', 'Advances': '34817', 'TimeZone': 'Eastern Standard Time', 'Suffix': 'OB', 'Name': 'OTC Bulletin Board', 'IsIntraday': 'true', 'Code': 'OTCBB', 'Currency': 'USD'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'SG', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '499', 'Advances': '12435', 'TimeZone': 'Singapore Standard Time', 'Suffix': 'SI', 'Name': 'Singapore Stock Exchange', 'IsIntraday': 'false', 'Code': 'SGX', 'Currency': 'SGD'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'CA', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '882', 'Advances': '5746', 'TimeZone': 'Mountain Standard Time', 'Suffix': 'TO', 'Name': 'Toronto Stock Exchange', 'IsIntraday': 'false', 'Code': 'TSX', 'Currency': 'CAD'}
-{'HasIntradayProduct': 'false', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'CA', 'IntradayStartDate': '0001-01-01T00:00:00', 'Declines': '562', 'Advances': '5035', 'TimeZone': 'Mountain Standard Time', 'Suffix': 'V', 'Name': 'Toronto Venture Exchange', 'IsIntraday': 'false', 'Code': 'TSXV', 'Currency': 'CAD'}
-{'HasIntradayProduct': 'true', 'LastTradeDateTime': '2017-03-24T00:00:00', 'Country': 'US', 'IntradayStartDate': '2009-01-01T00:00:00', 'Declines': '1', 'Advances': '9981', 'TimeZone': 'Central Standard Time', 'Suffix': '', 'Name': 'Winnipeg Commodity Exchange', 'IsIntraday': 'true', 'Code': 'WCE', 'Currency': 'USD'}
+{'Currency': 'USD', 'IsIntraday': 'true', 'Declines': '897', 'Name': 'American Stock Exchange', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T16:59:58', 'Advances': '3196', 'IntradayStartDate': '2008-01-01T00:00:00', 'HasIntradayProduct': 'true', 'Code': 'AMEX', 'Country': 'US', 'TimeZone': 'Eastern Standard Time'}
+{'Currency': 'AUD', 'IsIntraday': 'false', 'Declines': '494', 'Name': 'Australian Securities Exchange', 'Suffix': 'AX', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '14867', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'ASX', 'Country': 'AU', 'TimeZone': 'AUS Eastern Standard Time'}
+{'Currency': 'INR', 'IsIntraday': 'false', 'Declines': '0', 'Name': 'Bombay Stock Exchange', 'Suffix': 'I', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '4673', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'BSE', 'Country': 'IN', 'TimeZone': 'India Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'true', 'Declines': '234', 'Name': 'Chicago Board of Trade', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '101766', 'IntradayStartDate': '2009-01-01T00:00:00', 'HasIntradayProduct': 'true', 'Code': 'CBOT', 'Country': 'US', 'TimeZone': 'Central Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'true', 'Declines': '0', 'Name': 'Chicago Futures Exchange', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '207', 'IntradayStartDate': '2009-01-01T00:00:00', 'HasIntradayProduct': 'true', 'Code': 'CFE', 'Country': 'US', 'TimeZone': 'Central Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'true', 'Declines': '569', 'Name': 'Chicago Merchantile Exchange', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '211381', 'IntradayStartDate': '2009-01-01T00:00:00', 'HasIntradayProduct': 'true', 'Code': 'CME', 'Country': 'US', 'TimeZone': 'Eastern Standard Time'}
+{'Currency': 'EUR', 'IsIntraday': 'false', 'Declines': '0', 'Name': 'EUREX Futures Exchange', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '1754', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'EUREX', 'Country': 'CH', 'TimeZone': 'GMT Standard Time'}
+{'Currency': 'EUR', 'IsIntraday': 'false', 'Declines': '0', 'Name': 'Euronext Amsterdam', 'Suffix': 'AS', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '151', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'AMS', 'Country': 'NL', 'TimeZone': 'GMT Standard Time'}
+{'Currency': 'EUR', 'IsIntraday': 'false', 'Declines': '0', 'Name': 'Euronext Brussels', 'Suffix': 'BR', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '217', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'BRU', 'Country': 'BE', 'TimeZone': 'GMT Standard Time'}
+{'Currency': 'EUR', 'IsIntraday': 'false', 'Declines': '0', 'Name': 'Euronext Lisbon', 'Suffix': 'LS', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '48', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'LIS', 'Country': 'PT', 'TimeZone': 'GMT Standard Time'}
+{'Currency': 'EUR', 'IsIntraday': 'false', 'Declines': '0', 'Name': 'Euronext Paris', 'Suffix': 'PA', 'LastTradeDateTime': '2017-03-31T09:04:00', 'Advances': '1865', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'PAR', 'Country': 'FR', 'TimeZone': 'GMT Standard Time'}
+{'Currency': '', 'IsIntraday': 'false', 'Declines': '57', 'Name': 'Foreign Exchange', 'Suffix': '', 'LastTradeDateTime': '2017-04-01T04:58:59', 'Advances': '1345', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'FOREX', 'Country': 'US', 'TimeZone': 'Eastern Standard Time'}
+{'Currency': '', 'IsIntraday': 'false', 'Declines': '4', 'Name': 'Global Indices', 'Suffix': 'IDX', 'LastTradeDateTime': '2017-03-31T16:54:00', 'Advances': '2790', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'INDEX', 'Country': 'US', 'TimeZone': 'Eastern Standard Time'}
+{'Currency': 'HKD', 'IsIntraday': 'false', 'Declines': '700', 'Name': 'Hong Kong Stock Exchange', 'Suffix': 'HK', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '2107', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'HKEX', 'Country': 'HK', 'TimeZone': 'Singapore Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'true', 'Declines': '21', 'Name': 'Kansas City Board of Trade', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '2095', 'IntradayStartDate': '2009-01-01T00:00:00', 'HasIntradayProduct': 'true', 'Code': 'KCBT', 'Country': 'US', 'TimeZone': 'Central Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'false', 'Declines': '0', 'Name': 'LIFFE Futures and Options', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '2087', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'LIFFE', 'Country': 'US', 'TimeZone': 'GMT Standard Time'}
+{'Currency': 'GBP', 'IsIntraday': 'false', 'Declines': '2622', 'Name': 'London Stock Exchange', 'Suffix': 'L', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '37832', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'LSE', 'Country': 'UK', 'TimeZone': 'GMT Standard Time'}
+{'Currency': 'EUR', 'IsIntraday': 'false', 'Declines': '112', 'Name': 'Milan Stock Exchange', 'Suffix': 'MI', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '176', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'MLSE', 'Country': 'IT', 'TimeZone': 'Central European Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'true', 'Declines': '96', 'Name': 'Minneapolis Grain Exchange', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '14990', 'IntradayStartDate': '2009-01-01T00:00:00', 'HasIntradayProduct': 'true', 'Code': 'MGEX', 'Country': 'US', 'TimeZone': 'Central Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'false', 'Declines': '16958', 'Name': 'Mutual Funds', 'Suffix': '', 'LastTradeDateTime': '2017-03-30T00:00:00', 'Advances': '30240', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'USMF', 'Country': 'US', 'TimeZone': 'Eastern Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'true', 'Declines': '1837', 'Name': 'NASDAQ Stock Exchange', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T16:59:59', 'Advances': '5519', 'IntradayStartDate': '2008-01-01T00:00:00', 'HasIntradayProduct': 'true', 'Code': 'NASDAQ', 'Country': 'US', 'TimeZone': 'Eastern Standard Time'}
+{'Currency': 'INR', 'IsIntraday': 'false', 'Declines': '0', 'Name': 'National Stock Exchange of India', 'Suffix': 'I', 'LastTradeDateTime': '2017-03-31T09:23:00', 'Advances': '1391', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'NSE', 'Country': 'IN', 'TimeZone': 'GMT Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'true', 'Declines': '207', 'Name': 'New York Board of Trade', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '88214', 'IntradayStartDate': '2009-01-01T00:00:00', 'HasIntradayProduct': 'true', 'Code': 'NYBOT', 'Country': 'US', 'TimeZone': 'Eastern Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'true', 'Declines': '150', 'Name': 'New York Commodity Exchange', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '33435', 'IntradayStartDate': '2009-01-01T00:00:00', 'HasIntradayProduct': 'true', 'Code': 'COMEX', 'Country': 'US', 'TimeZone': 'Eastern Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'true', 'Declines': '237', 'Name': 'New York Merchantile Exchange', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '17081', 'IntradayStartDate': '2009-01-01T00:00:00', 'HasIntradayProduct': 'true', 'Code': 'NYMEX', 'Country': 'US', 'TimeZone': 'Eastern Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'true', 'Declines': '1880', 'Name': 'New York Stock Exchange', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T16:46:31', 'Advances': '4895', 'IntradayStartDate': '2008-01-01T00:00:00', 'HasIntradayProduct': 'true', 'Code': 'NYSE', 'Country': 'US', 'TimeZone': 'Eastern Standard Time'}
+{'Currency': 'NZD', 'IsIntraday': 'false', 'Declines': '44', 'Name': 'New Zealand Exchange', 'Suffix': 'NZ', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '1077', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'NZX', 'Country': 'NZ', 'TimeZone': 'New Zealand Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'true', 'Declines': '2112', 'Name': 'OTC Bulletin Board', 'Suffix': 'OB', 'LastTradeDateTime': '2017-03-31T16:59:59', 'Advances': '34732', 'IntradayStartDate': '2009-01-01T00:00:00', 'HasIntradayProduct': 'true', 'Code': 'OTCBB', 'Country': 'US', 'TimeZone': 'Eastern Standard Time'}
+{'Currency': 'SGD', 'IsIntraday': 'false', 'Declines': '499', 'Name': 'Singapore Stock Exchange', 'Suffix': 'SI', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '12390', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'SGX', 'Country': 'SG', 'TimeZone': 'Singapore Standard Time'}
+{'Currency': 'CAD', 'IsIntraday': 'false', 'Declines': '882', 'Name': 'Toronto Stock Exchange', 'Suffix': 'TO', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '5710', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'TSX', 'Country': 'CA', 'TimeZone': 'Mountain Standard Time'}
+{'Currency': 'CAD', 'IsIntraday': 'false', 'Declines': '562', 'Name': 'Toronto Venture Exchange', 'Suffix': 'V', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '5056', 'IntradayStartDate': '0001-01-01T00:00:00', 'HasIntradayProduct': 'false', 'Code': 'TSXV', 'Country': 'CA', 'TimeZone': 'Mountain Standard Time'}
+{'Currency': 'USD', 'IsIntraday': 'true', 'Declines': '1', 'Name': 'Winnipeg Commodity Exchange', 'Suffix': '', 'LastTradeDateTime': '2017-03-31T00:00:00', 'Advances': '9968', 'IntradayStartDate': '2009-01-01T00:00:00', 'HasIntradayProduct': 'true', 'Code': 'WCE', 'Country': 'US', 'TimeZone': 'Central Standard Time'}
 </pre>
 </div>
 </div>
@@ -1496,95 +1495,95 @@ Date of Change    Change Notes
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>HasIntradayProduct</th>
-<th>LastTradeDateTime</th>
-<th>Country</th>
-<th>IntradayStartDate</th>
-<th>Declines</th>
-<th>Advances</th>
-<th>TimeZone</th>
-<th>Suffix</th>
-<th>Name</th>
-<th>IsIntraday</th>
-<th>Code</th>
 <th>Currency</th>
+<th>IsIntraday</th>
+<th>Declines</th>
+<th>Name</th>
+<th>Suffix</th>
+<th>LastTradeDateTime</th>
+<th>Advances</th>
+<th>IntradayStartDate</th>
+<th>HasIntradayProduct</th>
+<th>Code</th>
+<th>Country</th>
+<th>TimeZone</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <th>0</th>
+<td>USD</td>
 <td>true</td>
-<td>2017-03-24T09:37:25</td>
-<td>US</td>
-<td>2008-01-01T00:00:00</td>
 <td>897</td>
-<td>3223</td>
-<td>Eastern Standard Time</td>
-<td></td>
 <td>American Stock Exchange</td>
+<td></td>
+<td>2017-03-31T16:59:58</td>
+<td>3196</td>
+<td>2008-01-01T00:00:00</td>
 <td>true</td>
 <td>AMEX</td>
-<td>USD</td>
+<td>US</td>
+<td>Eastern Standard Time</td>
 </tr>
 <tr>
 <th>1</th>
+<td>AUD</td>
 <td>false</td>
-<td>2017-03-24T00:00:00</td>
-<td>AU</td>
-<td>0001-01-01T00:00:00</td>
 <td>494</td>
-<td>14939</td>
-<td>AUS Eastern Standard Time</td>
-<td>AX</td>
 <td>Australian Securities Exchange</td>
+<td>AX</td>
+<td>2017-03-31T00:00:00</td>
+<td>14867</td>
+<td>0001-01-01T00:00:00</td>
 <td>false</td>
 <td>ASX</td>
-<td>AUD</td>
+<td>AU</td>
+<td>AUS Eastern Standard Time</td>
 </tr>
 <tr>
 <th>2</th>
+<td>INR</td>
 <td>false</td>
-<td>2017-03-24T00:00:00</td>
-<td>IN</td>
-<td>0001-01-01T00:00:00</td>
 <td>0</td>
-<td>4370</td>
-<td>India Standard Time</td>
-<td>I</td>
 <td>Bombay Stock Exchange</td>
+<td>I</td>
+<td>2017-03-31T00:00:00</td>
+<td>4673</td>
+<td>0001-01-01T00:00:00</td>
 <td>false</td>
 <td>BSE</td>
-<td>INR</td>
+<td>IN</td>
+<td>India Standard Time</td>
 </tr>
 <tr>
 <th>3</th>
+<td>USD</td>
 <td>true</td>
-<td>2017-03-24T00:00:00</td>
-<td>US</td>
-<td>2009-01-01T00:00:00</td>
 <td>234</td>
-<td>101646</td>
-<td>Central Standard Time</td>
-<td></td>
 <td>Chicago Board of Trade</td>
+<td></td>
+<td>2017-03-31T00:00:00</td>
+<td>101766</td>
+<td>2009-01-01T00:00:00</td>
 <td>true</td>
 <td>CBOT</td>
-<td>USD</td>
+<td>US</td>
+<td>Central Standard Time</td>
 </tr>
 <tr>
 <th>4</th>
+<td>USD</td>
 <td>true</td>
-<td>2017-03-24T00:00:00</td>
-<td>US</td>
-<td>2009-01-01T00:00:00</td>
 <td>0</td>
-<td>195</td>
-<td>Central Standard Time</td>
-<td></td>
 <td>Chicago Futures Exchange</td>
+<td></td>
+<td>2017-03-31T00:00:00</td>
+<td>207</td>
+<td>2009-01-01T00:00:00</td>
 <td>true</td>
 <td>CFE</td>
-<td>USD</td>
+<td>US</td>
+<td>Central Standard Time</td>
 </tr>
 </tbody>
 </table>
@@ -1629,7 +1628,7 @@ Date of Change    Change Notes
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'adriantorrie-github-io'; 
-    var disqus_title = 'ExchangeList()';
+    var disqus_title = 'ExchangeList() - Eoddata.com web service blog series';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -1649,12 +1648,12 @@ Date of Change    Change Notes
                 Site
                 </li>
             
-                <li><a href="http://adriantorrie.github.io/archives.html">Archives</a>
-                <li><a href="http://adriantorrie.github.io/tags.html">Tags</a>
+                <li><a href="./archives.html">Archives</a>
+                <li><a href="./tags.html">Tags</a>
 
 
 
-                <li><a href="http://adriantorrie.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
+                <li><a href="https://adriantorrie.github.io/feeds/all.atom.xml" rel="alternate">Atom feed</a></li>
 
             </ul>
             </div>
@@ -1666,10 +1665,10 @@ Date of Change    Change Notes
                 Categories
                 </li>
                 
-                <li><a href="http://adriantorrie.github.io/category/eoddata.html">Eoddata</a></li>
-                <li><a href="http://adriantorrie.github.io/category/misc.html">Misc</a></li>
-                <li><a href="http://adriantorrie.github.io/category/quant.html">Quant</a></li>
-                <li><a href="http://adriantorrie.github.io/category/udacity-dlfnd.html">Udacity DLFND</a></li>
+                <li><a href="./category/eoddata.html">Eoddata</a></li>
+                <li><a href="./category/misc.html">Misc</a></li>
+                <li><a href="./category/quant.html">Quant</a></li>
+                <li><a href="./category/udacity-notes.html">Udacity Notes</a></li>
                    
             </ul>
             </div>
@@ -1695,14 +1694,14 @@ Date of Change    Change Notes
     </div>     </div> 
 <footer>
 <br />
-<p><a href="http://adriantorrie.github.io">adriantorrie.github.io</a> &copy; Adrian Torrie 2017</p>
+<p><a href=".">adriantorrie.github.io</a> &copy; Adrian Torrie 2017</p>
 </footer>
 
 </div> <!-- /container -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="http://adriantorrie.github.io/theme/bootstrap-collapse.js"></script>
+<script src="./theme/bootstrap-collapse.js"></script>
 <script>var _gaq=[['_setAccount','UA-41099240-3'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
-<a href="https://github.com/adriantorrie/adriantorrie.github.io_src/content"><img style="position: absolute; top: 40px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
+<a href="https://github.com/adriantorrie"><img style="position: absolute; top: 40px; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png" alt="Fork me on GitHub" /></a>
  
 </body>
 </html>
