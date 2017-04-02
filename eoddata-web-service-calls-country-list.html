@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>adriantorrie.github.io - Login()</title>
+    <title>adriantorrie.github.io - CountryList()</title>
     <meta name="description" content="">
     <meta name="author" content="Adrian Torrie">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,8 +58,8 @@
 
     <div class='article'>
         <div class="content-title">
-            <h1>Login()</h1>
-Sat 25 March 2017
+            <h1>CountryList()</h1>
+Sun 02 April 2017
 
 by <a class="url fn" href="http://adriantorrie.github.io/author/adrian-torrie.html">Adrian Torrie</a>
  
@@ -67,18 +67,18 @@ by <a class="url fn" href="http://adriantorrie.github.io/author/adrian-torrie.ht
 
         </div>
 
-            <p>This post is part 2 of the "Using Python with Eoddata.com web service" series:</p>
+            <p>This post is part 4 of the "Using Python with Eoddata.com web service" series:</p>
             <ol class="parts">
                     <li >
                         <a href='http://adriantorrie.github.io/using-python-with-eoddata-web-service.html'>Using Python with Eoddata.com web service - Master post</a>
                     </li>
-                    <li class="active">
+                    <li >
                         <a href='http://adriantorrie.github.io/eoddata-web-service-calls-login.html'>Login()</a>
                     </li>
                     <li >
                         <a href='http://adriantorrie.github.io/eoddata-web-service-calls-exchange-list.html'>ExchangeList()</a>
                     </li>
-                    <li >
+                    <li class="active">
                         <a href='http://adriantorrie.github.io/eoddata-web-service-calls-country-list.html'>CountryList()</a>
                     </li>
             </ol>
@@ -1061,7 +1061,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h1><p><p><div class="lev1 toc-item"><a data-toc-modified-id="Summary-1" href="#Summary"><span class="toc-item-num">1  </span>Summary</a></div><div class="lev1 toc-item"><a data-toc-modified-id="Version-Control-2" href="#Version-Control"><span class="toc-item-num">2  </span>Version Control</a></div><div class="lev1 toc-item"><a data-toc-modified-id="Change-Log-3" href="#Change-Log"><span class="toc-item-num">3  </span>Change Log</a></div><div class="lev1 toc-item"><a data-toc-modified-id="Setup-4" href="#Setup"><span class="toc-item-num">4  </span>Setup</a></div><div class="lev1 toc-item"><a data-toc-modified-id="Login()-5" href="#Login()"><span class="toc-item-num">5  </span>Login()</a></div><div class="lev2 toc-item"><a data-toc-modified-id="Web-service-call-51" href="#Web-service-call"><span class="toc-item-num">5.1  </span>Web service call</a></div><div class="lev3 toc-item"><a data-toc-modified-id="Get-data-511" href="#Get-data"><span class="toc-item-num">5.1.1  </span>Get data</a></div><div class="lev3 toc-item"><a data-toc-modified-id="Data-inspection-(Login)-512" href="#Data-inspection-(Login)"><span class="toc-item-num">5.1.2  </span>Data inspection (Login)</a></div><div class="lev2 toc-item"><a data-toc-modified-id="Helper-function-52" href="#Helper-function"><span class="toc-item-num">5.2  </span>Helper function</a></div><div class="lev3 toc-item"><a data-toc-modified-id="Usage-521" href="#Usage"><span class="toc-item-num">5.2.1  </span>Usage</a></div><div class="lev2 toc-item"><a data-toc-modified-id="Client-function-53" href="#Client-function"><span class="toc-item-num">5.3  </span>Client function</a></div></p>
+<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h1><p><p><div class="lev1 toc-item"><a data-toc-modified-id="Summary-1" href="#Summary"><span class="toc-item-num">1  </span>Summary</a></div><div class="lev1 toc-item"><a data-toc-modified-id="Version-Control-2" href="#Version-Control"><span class="toc-item-num">2  </span>Version Control</a></div><div class="lev1 toc-item"><a data-toc-modified-id="Change-Log-3" href="#Change-Log"><span class="toc-item-num">3  </span>Change Log</a></div><div class="lev1 toc-item"><a data-toc-modified-id="Setup-4" href="#Setup"><span class="toc-item-num">4  </span>Setup</a></div><div class="lev1 toc-item"><a data-toc-modified-id="CountryList()-5" href="#CountryList()"><span class="toc-item-num">5  </span>CountryList()</a></div><div class="lev2 toc-item"><a data-toc-modified-id="Web-service-call-51" href="#Web-service-call"><span class="toc-item-num">5.1  </span>Web service call</a></div><div class="lev3 toc-item"><a data-toc-modified-id="Gather-elements-511" href="#Gather-elements"><span class="toc-item-num">5.1.1  </span>Gather elements</a></div><div class="lev3 toc-item"><a data-toc-modified-id="Get-data-512" href="#Get-data"><span class="toc-item-num">5.1.2  </span>Get data</a></div><div class="lev3 toc-item"><a data-toc-modified-id="Save-to-file-513" href="#Save-to-file"><span class="toc-item-num">5.1.3  </span>Save to file</a></div><div class="lev3 toc-item"><a data-toc-modified-id="Data-inspection-514" href="#Data-inspection"><span class="toc-item-num">5.1.4  </span>Data inspection</a></div><div class="lev2 toc-item"><a data-toc-modified-id="Helper-function-52" href="#Helper-function"><span class="toc-item-num">5.2  </span>Helper function</a></div><div class="lev3 toc-item"><a data-toc-modified-id="Usage-521" href="#Usage"><span class="toc-item-num">5.2.1  </span>Usage</a></div><div class="lev2 toc-item"><a data-toc-modified-id="Client-function-53" href="#Client-function"><span class="toc-item-num">5.3  </span>Client function</a></div></p>
 </p></div>
 </div>
 </div>
@@ -1074,7 +1074,7 @@ h6:hover .anchor-link {
 <ul>
 <li><strong> View the master post of this series to build a secure credentials file.</strong> It is used in all posts related to this series.</li>
 <li>Download the <a href="https://adriantorrie.github.io/downloads/code/eoddata.py">class definition file</a> for an easy to use client, which is demonstrated below</li>
-<li>This post covers the <code>Login</code> call: <a href="http://ws.eoddata.com/data.asmx?op=Login">http://ws.eoddata.com/data.asmx?op=Login</a></li>
+<li>This post covers the <code>CountryList</code> call: <a href="http://ws.eoddata.com/data.asmx?op=CountryList">http://ws.eoddata.com/data.asmx?op=CountryList</a></li>
 </ul>
 </div>
 </div>
@@ -1135,11 +1135,11 @@ tensorflow:	1.0.1
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<pre><code>Date Created: 2017-03-25
+<pre><code>Date Created: 2017-04-02
 
 Date of Change    Change Notes
 --------------    ----------------------------------------------------------------
-2017-03-25        Initial draft</code></pre>
+2017-04-02        Initial draft</code></pre>
 </div>
 </div>
 </div>
@@ -1159,58 +1159,15 @@ Date of Change    Change Notes
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> ../../code/eoddata.py
 
-<span class="kn">from</span> <span class="nn">getpass</span> <span class="k">import</span> <span class="n">getpass</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">requests</span> <span class="k">as</span> <span class="nn">r</span>
-<span class="kn">import</span> <span class="nn">xml.etree.cElementTree</span> <span class="k">as</span> <span class="nn">etree</span>
 
 <span class="n">ws</span> <span class="o">=</span> <span class="s1">'http://ws.eoddata.com/data.asmx'</span>
 <span class="n">ns</span><span class="o">=</span><span class="s1">'http://ws.eoddata.com/Data'</span>
-<span class="n">session</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+
+<span class="k">with</span> <span class="p">(</span><span class="n">Client</span><span class="p">())</span> <span class="k">as</span> <span class="n">eoddata</span><span class="p">:</span>
+    <span class="n">token</span> <span class="o">=</span> <span class="n">eoddata</span><span class="o">.</span><span class="n">get_token</span><span class="p">()</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [3]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">username</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>········
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [4]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">password</span> <span class="o">=</span> <span class="n">getpass</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>········
-</pre>
-</div>
 </div>
 </div>
 </div>
@@ -1220,7 +1177,7 @@ Date of Change    Change Notes
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Login()">Login()<a class="anchor-link" href="#Login()">¶</a></h1>
+<h1 id="CountryList()">CountryList()<a class="anchor-link" href="#CountryList()">¶</a></h1>
 </div>
 </div>
 </div>
@@ -1235,18 +1192,42 @@ Date of Change    Change Notes
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">call</span> <span class="o">=</span> <span class="s1">'Login'</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+
+<span class="n">call</span> <span class="o">=</span> <span class="s1">'CountryList'</span>
+<span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Token'</span><span class="p">:</span> <span class="n">token</span><span class="p">,}</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="s2">".//{</span><span class="si">%s</span><span class="s2">}CountryBase"</span>
+
 <span class="n">url</span> <span class="o">=</span> <span class="s1">'/'</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">ws</span><span class="p">,</span> <span class="n">call</span><span class="p">))</span>
-
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Username'</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span> <span class="s1">'Password'</span><span class="p">:</span> <span class="n">password</span><span class="p">}</span>
-
-<span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
     <span class="n">root</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
+    
+<span class="n">session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Gather-elements">Gather elements<a class="anchor-link" href="#Gather-elements">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">elements</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span> <span class="o">%</span><span class="p">(</span><span class="n">ns</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1263,11 +1244,11 @@ Date of Change    Change Notes
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">token</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Token'</span><span class="p">)</span>
-<span class="n">token</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">element</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Code'</span><span class="p">),</span> <span class="n">element</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Name'</span><span class="p">))</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">)</span>
+<span class="n">countries</span>
 </pre></div>
 </div>
 </div>
@@ -1275,9 +1256,253 @@ Date of Change    Change Notes
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[6]:</div>
+<div class="prompt output_prompt">Out[5]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>'018558Q2G41P'</pre>
+<pre>[('AD', 'Andorra'),
+ ('AE', 'United Arab Emirates'),
+ ('AF', 'Afghanistan'),
+ ('AG', 'Antigua'),
+ ('AI', 'Anguilla'),
+ ('AL', 'Albania'),
+ ('AM', 'Armenia'),
+ ('AN', 'Netherlands Antilles'),
+ ('AO', 'Angola'),
+ ('AR', 'Argentina'),
+ ('AS', 'American Samoa'),
+ ('AT', 'Austria'),
+ ('AU', 'Australia'),
+ ('AW', 'Aruba'),
+ ('AZ', 'Azerbaijan'),
+ ('BA', 'Bosnia'),
+ ('BB', 'Barbados'),
+ ('BD', 'Bangladesh'),
+ ('BE', 'Belgium'),
+ ('BF', 'Burkinia Faso'),
+ ('BG', 'Bulgaria'),
+ ('BH', 'Bahrain'),
+ ('BI', 'Burundi'),
+ ('BJ', 'Benin'),
+ ('BM', 'Bermuda'),
+ ('BN', 'Brunei Darussalam'),
+ ('BO', 'Bolivia'),
+ ('BR', 'Brazil'),
+ ('BS', 'Bahamas'),
+ ('BT', 'Bhutan'),
+ ('BV', 'Bouvet Island'),
+ ('BW', 'Botswana'),
+ ('BX', 'Barbuda'),
+ ('BY', 'Belarus'),
+ ('BZ', 'Belize'),
+ ('CA', 'Canada'),
+ ('CC', 'Cocos Keeling Islands'),
+ ('CF', 'Central African Republic'),
+ ('CG', 'Congo'),
+ ('CH', 'Switzerland'),
+ ('CI', "Cote Di'voire"),
+ ('CK', 'Cook Islands'),
+ ('CL', 'Chile'),
+ ('CM', 'Cameroon'),
+ ('CN', 'China'),
+ ('CO', 'Colombia'),
+ ('CR', 'Costa Rica'),
+ ('CS', 'Serbia and Montenegro'),
+ ('CU', 'Cuba'),
+ ('CV', 'Cape Verde'),
+ ('CX', 'Christmas Island'),
+ ('CY', 'Cyprus'),
+ ('CZ', 'Czech Republic'),
+ ('DE', 'Germany'),
+ ('DJ', 'Djibouti'),
+ ('DK', 'Denmark'),
+ ('DM', 'Dominica'),
+ ('DO', 'Dominican Republic'),
+ ('DZ', 'Algeria'),
+ ('EC', 'Ecuador'),
+ ('EE', 'Estonia'),
+ ('EG', 'Egypt'),
+ ('EH', 'Western Sahara'),
+ ('EQ', 'Equatorial Guinea'),
+ ('ER', 'Eritrea'),
+ ('ES', 'Spain'),
+ ('ET', 'Ethiopia'),
+ ('FA', 'French Antilles'),
+ ('FI', 'Finland'),
+ ('FJ', 'Fiji'),
+ ('FK', 'Falkland Islands'),
+ ('FM', 'Micronesia'),
+ ('FO', 'Faroe Islands'),
+ ('FR', 'France'),
+ ('GA', 'Gabon'),
+ ('GD', 'Grenada'),
+ ('GE', 'Georgia'),
+ ('GF', 'French Guyana'),
+ ('GH', 'Ghana'),
+ ('GI', 'Gibraltar'),
+ ('GL', 'Greenland'),
+ ('GM', 'Gambia'),
+ ('GN', 'Guinea'),
+ ('GP', 'Guadeloupe'),
+ ('GR', 'Greece'),
+ ('GR', 'Grenadines'),
+ ('GS', 'Guernsey'),
+ ('GT', 'Guatemala'),
+ ('GU', 'Guam'),
+ ('GW', 'Guinea Bissau'),
+ ('GY', 'Guyana'),
+ ('HK', 'Hong Kong'),
+ ('HM', 'Heard Island and McDonald Islands'),
+ ('HN', 'Honduras'),
+ ('HR', 'Croatia'),
+ ('HT', 'Haiti'),
+ ('HU', 'Hungary'),
+ ('HZ', 'Herzegovina'),
+ ('ID', 'Indonesia'),
+ ('IE', 'Ireland'),
+ ('IL', 'Israel'),
+ ('IM', 'Isle of Man'),
+ ('IN', 'India'),
+ ('IO', 'British Indian Ocean Territory'),
+ ('IQ', 'Iraq'),
+ ('IR', 'Iran'),
+ ('IS', 'Iceland'),
+ ('IT', 'Italy'),
+ ('IV', 'Ivory Coast'),
+ ('JE', 'Jersey'),
+ ('JM', 'Jamaica'),
+ ('JN', 'Jan Mayen'),
+ ('JO', 'Jordan'),
+ ('JP', 'Japan'),
+ ('KE', 'Kenya'),
+ ('KG', 'Kyrgyzstan'),
+ ('KH', 'Cambodia'),
+ ('KI', 'Kiribati'),
+ ('KM', 'Comores'),
+ ('KN', 'St Kitts'),
+ ('KP', 'North Korea'),
+ ('KR', 'South Korea'),
+ ('KW', 'Kuwait'),
+ ('KY', 'Cayman Islands'),
+ ('KZ', 'Kazakhstan'),
+ ('LA', 'Laos'),
+ ('LB', 'Lebanon'),
+ ('LC', 'Saint Lucia'),
+ ('LI', 'Liechtenstein'),
+ ('LK', 'Sri Lanka'),
+ ('LR', 'Liberia'),
+ ('LS', 'Lesotho'),
+ ('LT', 'Lithuania'),
+ ('LU', 'Luxembourg'),
+ ('LV', 'Latvia'),
+ ('LY', 'Libya'),
+ ('MA', 'Morocco'),
+ ('MC', 'Monaco'),
+ ('MD', 'Miquelon'),
+ ('MD', 'Moldova'),
+ ('MG', 'Madagascar'),
+ ('MK', 'Macedonia'),
+ ('ML', 'Mali'),
+ ('MM', 'Myanmar'),
+ ('MN', 'Mongolia'),
+ ('MO', 'Macau'),
+ ('MP', 'North Mariana Islands'),
+ ('MQ', 'Martinique'),
+ ('MR', 'Mauritania'),
+ ('MS', 'Montserrat'),
+ ('MT', 'Malta'),
+ ('MU', 'Mauritius'),
+ ('MV', 'Maldives'),
+ ('MW', 'Malawi'),
+ ('MX', 'Mexico'),
+ ('MY', 'Malaysia'),
+ ('MZ', 'Mozambique'),
+ ('NA', 'Namibia'),
+ ('NC', 'New Caledonia'),
+ ('NE', 'Niger'),
+ ('NF', 'Norfolk Island'),
+ ('NG', 'Nigeria'),
+ ('NI', 'Nicaragua'),
+ ('NL', 'Netherlands'),
+ ('NO', 'Norway'),
+ ('NP', 'Nepal'),
+ ('NR', 'Nauru'),
+ ('NU', 'Niue'),
+ ('NV', 'Nevis'),
+ ('NZ', 'New Zealand'),
+ ('OM', 'Oman'),
+ ('PA', 'Panama'),
+ ('PC', 'Principe'),
+ ('PE', 'Peru'),
+ ('PF', 'French Polynesia'),
+ ('PG', 'Papua New Guinea'),
+ ('PH', 'Philippines'),
+ ('PK', 'Pakistan'),
+ ('PL', 'Poland'),
+ ('PM', 'St Pierre'),
+ ('PN', 'Pitcairn Island'),
+ ('PR', 'Puerto Rico'),
+ ('PT', 'Portugal'),
+ ('PW', 'Palau'),
+ ('PY', 'Paraguay'),
+ ('QA', 'Qatar'),
+ ('RE', 'Reunion'),
+ ('RO', 'Romania'),
+ ('RU', 'Russia'),
+ ('RW', 'Rwanda'),
+ ('SA', 'Saudi Arabia'),
+ ('SB', 'Solomon Islands'),
+ ('SC', 'Seychelles'),
+ ('SD', 'Sudan'),
+ ('SE', 'Sweden'),
+ ('SG', 'Singapore'),
+ ('SH', 'St Helena'),
+ ('SI', 'Slovenia'),
+ ('SJ', 'Svalbard'),
+ ('SK', 'Slovakia'),
+ ('SL', 'Sierra Leone'),
+ ('SM', 'San Marino'),
+ ('SN', 'Senegal'),
+ ('SO', 'Somalia'),
+ ('SR', 'Surinaam'),
+ ('ST', 'Sao Tome'),
+ ('SV', 'El Salvador'),
+ ('SY', 'Syria'),
+ ('SZ', 'Swaziland'),
+ ('TC', 'Turks and Caicos Islands'),
+ ('TD', 'Chad'),
+ ('TF', 'French Southern Territories'),
+ ('TG', 'Togo'),
+ ('TH', 'Thailand'),
+ ('TJ', 'Tadzhikstan'),
+ ('TK', 'Tokelau'),
+ ('TM', 'Turkmenistan'),
+ ('TN', 'Tunisia'),
+ ('TO', 'Tonga'),
+ ('TP', 'East Timor'),
+ ('TR', 'Turkey'),
+ ('TT', 'Trinidad and Tobago'),
+ ('TV', 'Tuvalu'),
+ ('TW', 'Taiwan'),
+ ('TZ', 'Tanzania'),
+ ('UA', 'Ukraine'),
+ ('UF', 'Unidades Fomento'),
+ ('UG', 'Uganda'),
+ ('UK', 'United Kingdom'),
+ ('US', 'United States'),
+ ('UY', 'Uruguay'),
+ ('UZ', 'Uzbekistan'),
+ ('VA', 'Vatican City'),
+ ('VC', 'St Vincent'),
+ ('VE', 'Venezuela'),
+ ('VG', 'Virgin Islands'),
+ ('VN', 'Vietnam'),
+ ('VU', 'Vanuatu'),
+ ('WF', 'Wallis and Futuna Islands'),
+ ('WS', 'Samoa'),
+ ('YE', 'Yemen'),
+ ('YU', 'Yugoslavia'),
+ ('ZA', 'South Africa'),
+ ('ZM', 'Zambia'),
+ ('ZW', 'Zimbabwe')]</pre>
 </div>
 </div>
 </div>
@@ -1288,81 +1513,35 @@ Date of Change    Change Notes
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Data-inspection-(Login)">Data inspection (Login)<a class="anchor-link" href="#Data-inspection-(Login)">¶</a></h3>
+<h3 id="Save-to-file">Save to file<a class="anchor-link" href="#Save-to-file">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'../../data/countries.csv'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'"</span><span class="si">%s</span><span class="s1">"</span><span class="se">\n</span><span class="s1">'</span> <span class="o">%</span> <span class="s1">'","'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Data-inspection">Data inspection<a class="anchor-link" href="#Data-inspection">¶</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt output_prompt">Out[7]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>['__class__',
- '__copy__',
- '__deepcopy__',
- '__delattr__',
- '__delitem__',
- '__dir__',
- '__doc__',
- '__eq__',
- '__format__',
- '__ge__',
- '__getattribute__',
- '__getitem__',
- '__getstate__',
- '__gt__',
- '__hash__',
- '__init__',
- '__le__',
- '__len__',
- '__lt__',
- '__ne__',
- '__new__',
- '__reduce__',
- '__reduce_ex__',
- '__repr__',
- '__setattr__',
- '__setitem__',
- '__setstate__',
- '__sizeof__',
- '__str__',
- '__subclasshook__',
- 'append',
- 'clear',
- 'extend',
- 'find',
- 'findall',
- 'findtext',
- 'get',
- 'getchildren',
- 'getiterator',
- 'insert',
- 'items',
- 'iter',
- 'iterfind',
- 'itertext',
- 'keys',
- 'makeelement',
- 'remove',
- 'set']</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -1376,11 +1555,9 @@ Date of Change    Change Notes
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>('Suffix', 'true')
-('Header', 'false')
-('Token', '018558Q2G41P')
-('DataFormat', 'MSAI')
-('Message', 'Login Successful')
+<pre>('Date', '0001-01-01T00:00:00')
+('Source', 'Data.CountryList')
+('Message', 'Success')
 </pre>
 </div>
 </div>
@@ -1389,11 +1566,11 @@ Date of Change    Change Notes
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="nb">print</span> <span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">root</span><span class="o">.</span><span class="n">iter</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="o">.</span><span class="n">attrib</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1403,41 +1580,253 @@ Date of Change    Change Notes
 <div class="output_area">
 <div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Suffix
-Header
-Token
-DataFormat
-Message
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [10]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Message'</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Token'</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'DataFormat'</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Header'</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Suffix'</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Login Successful
-018558Q2G41P
-MSAI
-false
-true
+<pre>{'Date': '0001-01-01T00:00:00', 'Source': 'Data.CountryList', 'Message': 'Success'}
+{}
+{'Code': 'AF', 'Name': 'Afghanistan'}
+{'Code': 'AL', 'Name': 'Albania'}
+{'Code': 'DZ', 'Name': 'Algeria'}
+{'Code': 'AS', 'Name': 'American Samoa'}
+{'Code': 'AD', 'Name': 'Andorra'}
+{'Code': 'AO', 'Name': 'Angola'}
+{'Code': 'AI', 'Name': 'Anguilla'}
+{'Code': 'AG', 'Name': 'Antigua'}
+{'Code': 'AR', 'Name': 'Argentina'}
+{'Code': 'AM', 'Name': 'Armenia'}
+{'Code': 'AW', 'Name': 'Aruba'}
+{'Code': 'AU', 'Name': 'Australia'}
+{'Code': 'AT', 'Name': 'Austria'}
+{'Code': 'AZ', 'Name': 'Azerbaijan'}
+{'Code': 'BS', 'Name': 'Bahamas'}
+{'Code': 'BH', 'Name': 'Bahrain'}
+{'Code': 'BD', 'Name': 'Bangladesh'}
+{'Code': 'BB', 'Name': 'Barbados'}
+{'Code': 'BX', 'Name': 'Barbuda'}
+{'Code': 'BY', 'Name': 'Belarus'}
+{'Code': 'BE', 'Name': 'Belgium'}
+{'Code': 'BZ', 'Name': 'Belize'}
+{'Code': 'BJ', 'Name': 'Benin'}
+{'Code': 'BM', 'Name': 'Bermuda'}
+{'Code': 'BT', 'Name': 'Bhutan'}
+{'Code': 'BO', 'Name': 'Bolivia'}
+{'Code': 'BA', 'Name': 'Bosnia'}
+{'Code': 'BW', 'Name': 'Botswana'}
+{'Code': 'BV', 'Name': 'Bouvet Island'}
+{'Code': 'BR', 'Name': 'Brazil'}
+{'Code': 'IO', 'Name': 'British Indian Ocean Territory'}
+{'Code': 'BN', 'Name': 'Brunei Darussalam'}
+{'Code': 'BG', 'Name': 'Bulgaria'}
+{'Code': 'BF', 'Name': 'Burkinia Faso'}
+{'Code': 'BI', 'Name': 'Burundi'}
+{'Code': 'KH', 'Name': 'Cambodia'}
+{'Code': 'CM', 'Name': 'Cameroon'}
+{'Code': 'CA', 'Name': 'Canada'}
+{'Code': 'CV', 'Name': 'Cape Verde'}
+{'Code': 'KY', 'Name': 'Cayman Islands'}
+{'Code': 'CF', 'Name': 'Central African Republic'}
+{'Code': 'TD', 'Name': 'Chad'}
+{'Code': 'CL', 'Name': 'Chile'}
+{'Code': 'CN', 'Name': 'China'}
+{'Code': 'CX', 'Name': 'Christmas Island'}
+{'Code': 'CC', 'Name': 'Cocos Keeling Islands'}
+{'Code': 'CO', 'Name': 'Colombia'}
+{'Code': 'KM', 'Name': 'Comores'}
+{'Code': 'CG', 'Name': 'Congo'}
+{'Code': 'CK', 'Name': 'Cook Islands'}
+{'Code': 'CR', 'Name': 'Costa Rica'}
+{'Code': 'CI', 'Name': "Cote Di'voire"}
+{'Code': 'HR', 'Name': 'Croatia'}
+{'Code': 'CU', 'Name': 'Cuba'}
+{'Code': 'CY', 'Name': 'Cyprus'}
+{'Code': 'CZ', 'Name': 'Czech Republic'}
+{'Code': 'DK', 'Name': 'Denmark'}
+{'Code': 'DJ', 'Name': 'Djibouti'}
+{'Code': 'DM', 'Name': 'Dominica'}
+{'Code': 'DO', 'Name': 'Dominican Republic'}
+{'Code': 'TP', 'Name': 'East Timor'}
+{'Code': 'EC', 'Name': 'Ecuador'}
+{'Code': 'EG', 'Name': 'Egypt'}
+{'Code': 'SV', 'Name': 'El Salvador'}
+{'Code': 'EQ', 'Name': 'Equatorial Guinea'}
+{'Code': 'ER', 'Name': 'Eritrea'}
+{'Code': 'EE', 'Name': 'Estonia'}
+{'Code': 'ET', 'Name': 'Ethiopia'}
+{'Code': 'FK', 'Name': 'Falkland Islands'}
+{'Code': 'FO', 'Name': 'Faroe Islands'}
+{'Code': 'FJ', 'Name': 'Fiji'}
+{'Code': 'FI', 'Name': 'Finland'}
+{'Code': 'FR', 'Name': 'France'}
+{'Code': 'FA', 'Name': 'French Antilles'}
+{'Code': 'GF', 'Name': 'French Guyana'}
+{'Code': 'PF', 'Name': 'French Polynesia'}
+{'Code': 'TF', 'Name': 'French Southern Territories'}
+{'Code': 'GA', 'Name': 'Gabon'}
+{'Code': 'GM', 'Name': 'Gambia'}
+{'Code': 'GE', 'Name': 'Georgia'}
+{'Code': 'DE', 'Name': 'Germany'}
+{'Code': 'GH', 'Name': 'Ghana'}
+{'Code': 'GI', 'Name': 'Gibraltar'}
+{'Code': 'GR', 'Name': 'Greece'}
+{'Code': 'GL', 'Name': 'Greenland'}
+{'Code': 'GD', 'Name': 'Grenada'}
+{'Code': 'GR', 'Name': 'Grenadines'}
+{'Code': 'GP', 'Name': 'Guadeloupe'}
+{'Code': 'GU', 'Name': 'Guam'}
+{'Code': 'GT', 'Name': 'Guatemala'}
+{'Code': 'GS', 'Name': 'Guernsey'}
+{'Code': 'GN', 'Name': 'Guinea'}
+{'Code': 'GW', 'Name': 'Guinea Bissau'}
+{'Code': 'GY', 'Name': 'Guyana'}
+{'Code': 'HT', 'Name': 'Haiti'}
+{'Code': 'HM', 'Name': 'Heard Island and McDonald Islands'}
+{'Code': 'HZ', 'Name': 'Herzegovina'}
+{'Code': 'HN', 'Name': 'Honduras'}
+{'Code': 'HK', 'Name': 'Hong Kong'}
+{'Code': 'HU', 'Name': 'Hungary'}
+{'Code': 'IS', 'Name': 'Iceland'}
+{'Code': 'IN', 'Name': 'India'}
+{'Code': 'ID', 'Name': 'Indonesia'}
+{'Code': 'IR', 'Name': 'Iran'}
+{'Code': 'IQ', 'Name': 'Iraq'}
+{'Code': 'IE', 'Name': 'Ireland'}
+{'Code': 'IM', 'Name': 'Isle of Man'}
+{'Code': 'IL', 'Name': 'Israel'}
+{'Code': 'IT', 'Name': 'Italy'}
+{'Code': 'IV', 'Name': 'Ivory Coast'}
+{'Code': 'JM', 'Name': 'Jamaica'}
+{'Code': 'JN', 'Name': 'Jan Mayen'}
+{'Code': 'JP', 'Name': 'Japan'}
+{'Code': 'JE', 'Name': 'Jersey'}
+{'Code': 'JO', 'Name': 'Jordan'}
+{'Code': 'KZ', 'Name': 'Kazakhstan'}
+{'Code': 'KE', 'Name': 'Kenya'}
+{'Code': 'KI', 'Name': 'Kiribati'}
+{'Code': 'KW', 'Name': 'Kuwait'}
+{'Code': 'KG', 'Name': 'Kyrgyzstan'}
+{'Code': 'LA', 'Name': 'Laos'}
+{'Code': 'LV', 'Name': 'Latvia'}
+{'Code': 'LB', 'Name': 'Lebanon'}
+{'Code': 'LS', 'Name': 'Lesotho'}
+{'Code': 'LR', 'Name': 'Liberia'}
+{'Code': 'LY', 'Name': 'Libya'}
+{'Code': 'LI', 'Name': 'Liechtenstein'}
+{'Code': 'LT', 'Name': 'Lithuania'}
+{'Code': 'LU', 'Name': 'Luxembourg'}
+{'Code': 'MO', 'Name': 'Macau'}
+{'Code': 'MK', 'Name': 'Macedonia'}
+{'Code': 'MG', 'Name': 'Madagascar'}
+{'Code': 'MW', 'Name': 'Malawi'}
+{'Code': 'MY', 'Name': 'Malaysia'}
+{'Code': 'MV', 'Name': 'Maldives'}
+{'Code': 'ML', 'Name': 'Mali'}
+{'Code': 'MT', 'Name': 'Malta'}
+{'Code': 'MQ', 'Name': 'Martinique'}
+{'Code': 'MR', 'Name': 'Mauritania'}
+{'Code': 'MU', 'Name': 'Mauritius'}
+{'Code': 'MX', 'Name': 'Mexico'}
+{'Code': 'FM', 'Name': 'Micronesia'}
+{'Code': 'MD', 'Name': 'Miquelon'}
+{'Code': 'MD', 'Name': 'Moldova'}
+{'Code': 'MC', 'Name': 'Monaco'}
+{'Code': 'MN', 'Name': 'Mongolia'}
+{'Code': 'MS', 'Name': 'Montserrat'}
+{'Code': 'MA', 'Name': 'Morocco'}
+{'Code': 'MZ', 'Name': 'Mozambique'}
+{'Code': 'MM', 'Name': 'Myanmar'}
+{'Code': 'NA', 'Name': 'Namibia'}
+{'Code': 'NR', 'Name': 'Nauru'}
+{'Code': 'NP', 'Name': 'Nepal'}
+{'Code': 'NL', 'Name': 'Netherlands'}
+{'Code': 'AN', 'Name': 'Netherlands Antilles'}
+{'Code': 'NV', 'Name': 'Nevis'}
+{'Code': 'NC', 'Name': 'New Caledonia'}
+{'Code': 'NZ', 'Name': 'New Zealand'}
+{'Code': 'NI', 'Name': 'Nicaragua'}
+{'Code': 'NE', 'Name': 'Niger'}
+{'Code': 'NG', 'Name': 'Nigeria'}
+{'Code': 'NU', 'Name': 'Niue'}
+{'Code': 'NF', 'Name': 'Norfolk Island'}
+{'Code': 'KP', 'Name': 'North Korea'}
+{'Code': 'MP', 'Name': 'North Mariana Islands'}
+{'Code': 'NO', 'Name': 'Norway'}
+{'Code': 'OM', 'Name': 'Oman'}
+{'Code': 'PK', 'Name': 'Pakistan'}
+{'Code': 'PW', 'Name': 'Palau'}
+{'Code': 'PA', 'Name': 'Panama'}
+{'Code': 'PG', 'Name': 'Papua New Guinea'}
+{'Code': 'PY', 'Name': 'Paraguay'}
+{'Code': 'PE', 'Name': 'Peru'}
+{'Code': 'PH', 'Name': 'Philippines'}
+{'Code': 'PN', 'Name': 'Pitcairn Island'}
+{'Code': 'PL', 'Name': 'Poland'}
+{'Code': 'PT', 'Name': 'Portugal'}
+{'Code': 'PC', 'Name': 'Principe'}
+{'Code': 'PR', 'Name': 'Puerto Rico'}
+{'Code': 'QA', 'Name': 'Qatar'}
+{'Code': 'RE', 'Name': 'Reunion'}
+{'Code': 'RO', 'Name': 'Romania'}
+{'Code': 'RU', 'Name': 'Russia'}
+{'Code': 'RW', 'Name': 'Rwanda'}
+{'Code': 'LC', 'Name': 'Saint Lucia'}
+{'Code': 'WS', 'Name': 'Samoa'}
+{'Code': 'SM', 'Name': 'San Marino'}
+{'Code': 'ST', 'Name': 'Sao Tome'}
+{'Code': 'SA', 'Name': 'Saudi Arabia'}
+{'Code': 'SN', 'Name': 'Senegal'}
+{'Code': 'CS', 'Name': 'Serbia and Montenegro'}
+{'Code': 'SC', 'Name': 'Seychelles'}
+{'Code': 'SL', 'Name': 'Sierra Leone'}
+{'Code': 'SG', 'Name': 'Singapore'}
+{'Code': 'SK', 'Name': 'Slovakia'}
+{'Code': 'SI', 'Name': 'Slovenia'}
+{'Code': 'SB', 'Name': 'Solomon Islands'}
+{'Code': 'SO', 'Name': 'Somalia'}
+{'Code': 'ZA', 'Name': 'South Africa'}
+{'Code': 'KR', 'Name': 'South Korea'}
+{'Code': 'ES', 'Name': 'Spain'}
+{'Code': 'LK', 'Name': 'Sri Lanka'}
+{'Code': 'SH', 'Name': 'St Helena'}
+{'Code': 'KN', 'Name': 'St Kitts'}
+{'Code': 'PM', 'Name': 'St Pierre'}
+{'Code': 'VC', 'Name': 'St Vincent'}
+{'Code': 'SD', 'Name': 'Sudan'}
+{'Code': 'SR', 'Name': 'Surinaam'}
+{'Code': 'SJ', 'Name': 'Svalbard'}
+{'Code': 'SZ', 'Name': 'Swaziland'}
+{'Code': 'SE', 'Name': 'Sweden'}
+{'Code': 'CH', 'Name': 'Switzerland'}
+{'Code': 'SY', 'Name': 'Syria'}
+{'Code': 'TJ', 'Name': 'Tadzhikstan'}
+{'Code': 'TW', 'Name': 'Taiwan'}
+{'Code': 'TZ', 'Name': 'Tanzania'}
+{'Code': 'TH', 'Name': 'Thailand'}
+{'Code': 'TG', 'Name': 'Togo'}
+{'Code': 'TK', 'Name': 'Tokelau'}
+{'Code': 'TO', 'Name': 'Tonga'}
+{'Code': 'TT', 'Name': 'Trinidad and Tobago'}
+{'Code': 'TN', 'Name': 'Tunisia'}
+{'Code': 'TR', 'Name': 'Turkey'}
+{'Code': 'TM', 'Name': 'Turkmenistan'}
+{'Code': 'TC', 'Name': 'Turks and Caicos Islands'}
+{'Code': 'TV', 'Name': 'Tuvalu'}
+{'Code': 'UG', 'Name': 'Uganda'}
+{'Code': 'UA', 'Name': 'Ukraine'}
+{'Code': 'UF', 'Name': 'Unidades Fomento'}
+{'Code': 'AE', 'Name': 'United Arab Emirates'}
+{'Code': 'UK', 'Name': 'United Kingdom'}
+{'Code': 'US', 'Name': 'United States'}
+{'Code': 'UY', 'Name': 'Uruguay'}
+{'Code': 'UZ', 'Name': 'Uzbekistan'}
+{'Code': 'VU', 'Name': 'Vanuatu'}
+{'Code': 'VA', 'Name': 'Vatican City'}
+{'Code': 'VE', 'Name': 'Venezuela'}
+{'Code': 'VN', 'Name': 'Vietnam'}
+{'Code': 'VG', 'Name': 'Virgin Islands'}
+{'Code': 'WF', 'Name': 'Wallis and Futuna Islands'}
+{'Code': 'EH', 'Name': 'Western Sahara'}
+{'Code': 'YE', 'Name': 'Yemen'}
+{'Code': 'YU', 'Name': 'Yugoslavia'}
+{'Code': 'ZM', 'Name': 'Zambia'}
+{'Code': 'ZW', 'Name': 'Zimbabwe'}
 </pre>
 </div>
 </div>
@@ -1455,20 +1844,21 @@ true
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [11]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">Login</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-    <span class="n">call</span> <span class="o">=</span> <span class="s1">'Login'</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">CountryList</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">token</span><span class="p">):</span>
+    <span class="n">call</span> <span class="o">=</span> <span class="s1">'CountryList'</span>
+    <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Token'</span><span class="p">:</span> <span class="n">token</span><span class="p">,}</span>
+    <span class="n">pattern</span> <span class="o">=</span> <span class="s2">".//{</span><span class="si">%s</span><span class="s2">}CountryBase"</span>
+
     <span class="n">url</span> <span class="o">=</span> <span class="s1">'/'</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="n">ws</span><span class="p">,</span> <span class="n">call</span><span class="p">))</span>
-
-    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'Username'</span><span class="p">:</span> <span class="n">username</span><span class="p">,</span> <span class="s1">'Password'</span><span class="p">:</span> <span class="n">password</span><span class="p">}</span>
-
-    <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
         <span class="n">root</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span><span class="o">.</span><span class="n">getroot</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">root</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Token'</span><span class="p">)</span>
+        
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">element</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Code'</span><span class="p">),</span> <span class="n">element</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Name'</span><span class="p">))</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">elements</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1485,11 +1875,14 @@ true
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [12]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">token</span> <span class="o">=</span> <span class="n">Login</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
-<span class="n">token</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">session</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
+<span class="n">countries</span> <span class="o">=</span> <span class="n">CountryList</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+<span class="n">session</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">countries</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1497,9 +1890,18 @@ true
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt output_prompt">Out[12]:</div>
+<div class="prompt output_prompt">Out[10]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>'0185588RVBEM'</pre>
+<pre>[('AD', 'Andorra'),
+ ('AE', 'United Arab Emirates'),
+ ('AF', 'Afghanistan'),
+ ('AG', 'Antigua'),
+ ('AI', 'Anguilla'),
+ ('AL', 'Albania'),
+ ('AM', 'Armenia'),
+ ('AN', 'Netherlands Antilles'),
+ ('AO', 'Angola'),
+ ('AR', 'Argentina')]</pre>
 </div>
 </div>
 </div>
@@ -1516,15 +1918,13 @@ true
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [13]:</div>
+<div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pass in username and password</span>
-<span class="n">eoddata</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">eoddata</span><span class="o">.</span><span class="n">get_token</span><span class="p">()</span>
-<span class="n">eoddata</span><span class="o">.</span><span class="n">close_session</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pandas dataframe is returned</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">eoddata</span><span class="o">.</span><span class="n">country_list</span><span class="p">()</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">'token: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1532,61 +1932,46 @@ true
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>token: 018558BRKYV5
-</pre>
+<div class="prompt output_prompt">Out[11]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Code</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>AF</td>
+<td>Afghanistan</td>
+</tr>
+<tr>
+<th>1</th>
+<td>AL</td>
+<td>Albania</td>
+</tr>
+<tr>
+<th>2</th>
+<td>DZ</td>
+<td>Algeria</td>
+</tr>
+<tr>
+<th>3</th>
+<td>AS</td>
+<td>American Samoa</td>
+</tr>
+<tr>
+<th>4</th>
+<td>AD</td>
+<td>Andorra</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [14]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># initialise using secure credentials file</span>
-<span class="n">eoddata</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
-<span class="n">token</span> <span class="o">=</span> <span class="n">eoddata</span><span class="o">.</span><span class="n">get_token</span><span class="p">()</span>
-<span class="n">eoddata</span><span class="o">.</span><span class="n">close_session</span><span class="p">()</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">'token: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">token</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>token: 0185589B7QMS
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [15]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># no need to manually close the session when using a with block</span>
-<span class="k">with</span> <span class="p">(</span><span class="n">Client</span><span class="p">())</span> <span class="k">as</span> <span class="n">eoddata</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'token: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">eoddata</span><span class="o">.</span><span class="n">get_token</span><span class="p">()))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>token: 018558MN617X
-</pre>
 </div>
 </div>
 </div>
@@ -1627,7 +2012,7 @@ true
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'adriantorrie-github-io'; 
-    var disqus_title = 'Login()';
+    var disqus_title = 'CountryList()';
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
